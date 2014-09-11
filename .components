@@ -7,3 +7,4 @@
 :stylesheet: none
 :namespace: Citizenscienceks
 :migration_format: number
+:admin_renderer: slim
