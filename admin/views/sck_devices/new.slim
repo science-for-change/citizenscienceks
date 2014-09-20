@@ -1,0 +1,7 @@
+ul class="nav nav-tabs"
+  li = link_to tag_icon(:list, pat(:list)), url(:sck_devices, :index)
+  li class="active" = link_to tag_icon(:plus, pat(:new)), url(:sck_devices, :new)
+
+div class="tabs-content"
+  = form_for :sck_device, url(:sck_devices, :create), :class => 'form-horizontal' do |f|
+    = partial 'sck_devices/form', :locals => { :f => f }

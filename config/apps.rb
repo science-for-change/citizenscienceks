@@ -35,4 +35,4 @@ end
 # Mounts the core application for this project
 
 Padrino.mount("Citizenscienceks::Admin", :app_file => Padrino.root('admin/app.rb')).to("/admin")
-Padrino.mount('Citizenscienceks::App', :app_file => Padrino.root('app/app.rb')).to('/')
+Padrino.mount('Citizenscienceks::App', :app_file => Padrino.root('app/app.rb')).to('/').host(/www.citizenscienceks\.[dev|org]/)

@@ -1,0 +1,20 @@
+- error = @sck_device.errors.include?(:SCK_id)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label "Smart Citizen Kit Device ID", :class => 'control-label'
+  div class='controls'
+    = f.text_field :SCK_id, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    span class='help-inline' = error ? f.error_message_on(:SCK_id, :class => 'text-error') : pat(:example)
+- error = @sck_device.errors.include?(:SCK_API_key)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label "Smart Citizen Kit API key associated with device", :class => 'control-label'
+  div class='controls'
+    = f.text_field :SCK_API_key, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:SCK_API_key, :class => 'text-error') : pat(:example)
+- error = @sck_device.errors.include?(:title)
+
+div class="form-actions"
+  = f.submit pat(:save), :class => 'btn btn-primary'
+  |&nbsp;
+  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  |&nbsp;
+  = link_to pat(:cancel), url(:sck_devices, :index), :class => 'btn btn-default'
