@@ -35,8 +35,6 @@ class SckDevice < ActiveRecord::Base
     # get latest post to get created timestamp
     post = SmartCitizenClient.get_latest_post self.SCK_API_key, self.SCK_id
 
-    binding.pry
-
   end
 
 end
