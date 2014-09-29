@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 3) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,21 @@ ActiveRecord::Schema.define(version: 2) do
     t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "posts", force: true do |t|
+    t.datetime "timestamp"
+    t.float    "temp"
+    t.float    "hum"
+    t.float    "co"
+    t.float    "no2"
+    t.float    "light"
+    t.float    "noise"
+    t.float    "bat"
+    t.float    "panel"
+    t.float    "nets"
+    t.datetime "insert_datetime"
+    t.integer  "sck_device_id"
   end
 
   create_table "sck_devices", force: true do |t|
