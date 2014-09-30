@@ -3,12 +3,13 @@ class SckDevice < ActiveRecord::Base
   has_many :posts
 
 
-  private
-
   def get_attributes
 
+    # initialize client
+    client = SmartCitizenClient.new self.SCK_API_key, self.SCK_id
+
     # get latest post to get created timestamp
-    if post = SmartCitizenClient.get_latest_post(self.SCK_API_key, self.SCK_id)
+    if post = SmartCitizenClient.get_latest_post
 
       # dave data
       if d = post['device']
@@ -32,8 +33,38 @@ class SckDevice < ActiveRecord::Base
 
   def get_all_posts
 
+    # initialize client
+    client = SmartCitizenClient.new self.SCK_API_key, self.SCK_id
+
     # get latest post to get created timestamp
-    post = SmartCitizenClient.get_latest_post self.SCK_API_key, self.SCK_id
+    if latest_post = client.get_latest_post
+
+      # save all posts if any found
+      date = DateTime.strptime(latest_post['device']['created'], "%Y-%m-%d %H:%M:%S %Z").to_date
+      loop do
+        break if date == Date.today
+        if posts = client.get_posts_for_date(date)['device']['posts']
+          posts.each do | post |
+            Post.create({
+              timestamp: DateTime.strptime(post["timestamp"], "%Y-%m-%d %H:%M:%S %Z"),
+              temp: post["temp"],
+              hum: post["hum"],
+              co: post["co"],
+              no2: post["no2"],
+              light: post["light"],
+              noise: post["noise"],
+              bat: post["bat"],
+              panel: post["panel"],
+              nets: post["nets"],
+              insert_datetime: DateTime.strptime(post["insert_datetime"], "%Y-%m-%d %H:%M:%S %Z"),
+              sck_device_id: self.id})
+          end
+        end
+        date += 1
+      end
+
+
+    end
 
   end
 
