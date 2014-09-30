@@ -49,6 +49,7 @@ class SckDevice < ActiveRecord::Base
       if date == latest_local_timestamp # remove all posts from that day, so hopefully we'll get no duplicates
         self.posts.where("timestamp >= ?", Date.new(latest_local_timestamp.year, latest_local_timestamp.month, latest_local_timestamp.day)).destroy_all
       end
+      date = date.to_date
       loop do
         break if date == Date.today
         if posts = client.get_posts_for_date(date)
