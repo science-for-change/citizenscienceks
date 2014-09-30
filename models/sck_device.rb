@@ -39,7 +39,16 @@ class SckDevice < ActiveRecord::Base
     if latest_post = client.get_latest_post
 
       # save all posts if any found
-      date = DateTime.strptime(latest_post['device']['created'], "%Y-%m-%d %H:%M:%S %Z").to_date
+      installation_datetime = DateTime.strptime(latest_post['device']['created'], "%Y-%m-%d %H:%M:%S %Z").to_date
+      latest_local_timestamp = self.posts.order(:timestamp).size > 0 ? self.posts.order(:timestamp).last.timestamp : nil
+      date =  if latest_local_timestamp
+                installation_datetime < latest_local_timestamp ? latest_local_timestamp : installation_datetime
+              else
+                installation_datetime
+              end
+      if date == latest_local_timestamp # remove all posts from that day, so hopefully we'll get no duplicates
+        self.posts.where("timestamp >= ?", Date.new(latest_local_timestamp.year, latest_local_timestamp.month, latest_local_timestamp.day)).destroy_all
+      end
       loop do
         break if date == Date.today
         if posts = client.get_posts_for_date(date)
