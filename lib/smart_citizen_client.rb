@@ -1,4 +1,5 @@
 require 'httparty'
+require 'uri'
 
 class SmartCitizenClient
   include HTTParty
@@ -13,9 +14,33 @@ class SmartCitizenClient
   end
 
   def get_posts_for_date date
-    next_date = date+1
-    endpoint = @base_url+"/posts.json?from_date=#{date.year}-#{date.month}-#{date.day}&to_date=#{next_date.year}-#{next_date.month}-#{next_date.day}"
-    return self.class.get(endpoint)
+
+    # cludge: need to make four calls per day to ensure
+    # smartcitizen.me API does not hit its max limit of
+    # 500 posts per response
+
+    posts = []
+    [
+    DateTime.new(date.year, date.month, date.day),
+    DateTime.new(date.year, date.month, date.day, 6),
+    DateTime.new(date.year, date.month, date.day, 12),
+    DateTime.new(date.year, date.month, date.day, 18)].each do | datetime |
+
+      if six_hour_posts = get_posts_for_six_hours(datetime)
+        posts << six_hour_posts
+      end
+    end
+
+    return posts.flatten
   end
 
+  private
+  def get_posts_for_six_hours datetime
+    endpoint = @base_url+"/posts.json?from_date=#{datetime.year}-#{datetime.month}-#{datetime.day} #{datetime.hour}:00:00&to_date=#{datetime.year}-#{datetime.month}-#{datetime.day} #{datetime.hour+5}:59:59"
+    if posts = self.class.get(URI.escape(endpoint))['device']['posts']
+      return posts.size > 0 ? posts : nil
+    else
+      nil
+    end
+  end
 end

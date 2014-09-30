@@ -9,9 +9,9 @@ class SckDevice < ActiveRecord::Base
     client = SmartCitizenClient.new self.SCK_API_key, self.SCK_id
 
     # get latest post to get created timestamp
-    if post = SmartCitizenClient.get_latest_post
+    if post = client.get_latest_post
 
-      # dave data
+      # save data
       if d = post['device']
 
         self.title = d['title'] || nil
@@ -28,7 +28,6 @@ class SckDevice < ActiveRecord::Base
 
       end
     end
-
   end
 
   def get_all_posts
@@ -43,7 +42,7 @@ class SckDevice < ActiveRecord::Base
       date = DateTime.strptime(latest_post['device']['created'], "%Y-%m-%d %H:%M:%S %Z").to_date
       loop do
         break if date == Date.today
-        if posts = client.get_posts_for_date(date)['device']['posts']
+        if posts = client.get_posts_for_date(date)
           posts.each do | post |
             Post.create({
               timestamp: DateTime.strptime(post["timestamp"], "%Y-%m-%d %H:%M:%S %Z"),
