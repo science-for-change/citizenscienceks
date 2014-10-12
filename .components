@@ -4,7 +4,7 @@
 :mock: none
 :script: none
 :renderer: slim
-:stylesheet: none
+:stylesheet: compass
 :namespace: Citizenscienceks
 :migration_format: number
 :admin_renderer: slim

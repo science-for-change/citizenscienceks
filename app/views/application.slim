@@ -1,0 +1,17 @@
+doctype 5
+html.no-js lang='en'
+  head
+    meta name='viewport' content='width=device-width,initial-scale=1'
+    meta charset='utf-8'
+    title My application
+    = stylesheet_link_tag :application
+    = javascript_include_tag 'vendor/modernizr'
+
+  body
+
+    = yield
+    = javascript_include_tag 'vendor/jquery'
+    = javascript_include_tag 'vendor/fastclick'
+    = javascript_include_tag 'foundation/foundation.js'
+    javascript:
+      $(document).foundation();

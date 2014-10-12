@@ -3,8 +3,14 @@ module Citizenscienceks
     use ActiveRecord::ConnectionAdapters::ConnectionManagement
     register Padrino::Mailer
     register Padrino::Helpers
+    register CompassInitializer
+
 
     enable :sessions
+
+    get "/" do
+      render "frontpage"
+    end
 
     ##
     # Caching support.
