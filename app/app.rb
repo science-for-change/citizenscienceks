@@ -5,8 +5,11 @@ module Citizenscienceks
     register Padrino::Helpers
     register CompassInitializer
 
-
     enable :sessions
+
+    use Rack::Auth::Basic, "Restricted Area" do |username, password|
+      username == 'citsci' and password == 'kosov0'
+    end
 
     get "/" do
       render "frontpage"
