@@ -89,6 +89,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-remote (0.1.8)
+      pry (~> 0.9)
+      slop (~> 3.0)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -199,6 +202,6 @@ DEPENDENCIES
   httparty
   padrino (= 0.12.3)
   pg
-  pry
+  pry-remote
   rake
   slim

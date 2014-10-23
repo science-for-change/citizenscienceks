@@ -37,6 +37,7 @@ div class="tabs-content"
         th class='header' = mat(:sck_device, :elevation)
         th class='header' = mat(:sck_device, :geo_lat)
         th class='header' = mat(:sck_device, :geo_long)
+        th class='header' = mat(:sck_device, :site)
         th class='header' = mat(:sck_device, :created)
         th class='header' = mat(:sck_device, :last_insert_datetime)
         th class='header' = mat(:sck_device, :created_at)
@@ -59,6 +60,7 @@ div class="tabs-content"
           td class='list-column' = sck_device.elevation
           td class='list-column' = sck_device.geo_lat
           td class='list-column' = sck_device.geo_long
+          td class='list-column' = sck_device.site.name if sck_device.site
           td class='list-column' = sck_device.created
           td class='list-column' = sck_device.last_insert_datetime
           td class='list-column' = time_ago_in_words sck_device.created_at

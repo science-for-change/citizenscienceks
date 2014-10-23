@@ -13,7 +13,7 @@ gem 'slim'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'pg'
 gem 'httparty'
-gem 'pry'
+gem 'pry-remote'
 
 # Padrino Stable Gem
 gem 'padrino', '0.12.3'

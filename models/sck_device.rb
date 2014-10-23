@@ -1,5 +1,6 @@
 class SckDevice < ActiveRecord::Base
   before_save :get_attributes
+  belongs_to :site
   has_many :posts
 
 
