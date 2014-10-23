@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 6) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,39 @@ ActiveRecord::Schema.define(version: 3) do
     t.string   "email"
     t.string   "crypted_password"
     t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "diffusion_tubes", force: true do |t|
+    t.string   "no2_label"
+    t.string   "so2_label"
+    t.float    "tube_height"
+    t.float    "exposure_hours"
+    t.float    "µg_s_total"
+    t.float    "µg_s_blank"
+    t.float    "so2_µg_m3"
+    t.float    "so2_µg_ppb"
+    t.float    "mg_m3"
+    t.float    "ppb"
+    t.float    "no2_µg"
+    t.integer  "site_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ghost_wipes", force: true do |t|
+    t.string   "label"
+    t.float    "As"
+    t.float    "Cd"
+    t.float    "Cr"
+    t.float    "Cu"
+    t.float    "Hg"
+    t.float    "Ni"
+    t.float    "Pb"
+    t.float    "Se"
+    t.float    "Zn"
+    t.integer  "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,6 +88,15 @@ ActiveRecord::Schema.define(version: 3) do
     t.decimal  "geo_long"
     t.datetime "created"
     t.datetime "last_insert_datetime"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sites", force: true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
