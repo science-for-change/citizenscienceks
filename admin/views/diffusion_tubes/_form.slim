@@ -68,7 +68,7 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :site_id, :class => 'control-label'
   div class='controls'
-    = f.text_field :site_id, :class => 'form-control input-large input-with-feedback'
+    = f.select :site_id, options: Site.all.order(:name).map { |s| [s.name, s.id]  }, :class => 'form-control input-large input-with-feedback', include_blank: true
     span class='help-inline' = error ? f.error_message_on(:site_id, :class => 'text-error') : pat(:example)
 
 div class="form-actions"
