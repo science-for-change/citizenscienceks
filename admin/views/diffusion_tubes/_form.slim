@@ -1,0 +1,79 @@
+- error = @diffusion_tube.errors.include?(:no2_label)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :no2_label, :class => 'control-label'
+  div class='controls'
+    = f.text_field :no2_label, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    span class='help-inline' = error ? f.error_message_on(:no2_label, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:so2_label)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :so2_label, :class => 'control-label'
+  div class='controls'
+    = f.text_field :so2_label, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:so2_label, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:tube_height)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :tube_height, :class => 'control-label'
+  div class='controls'
+    = f.text_field :tube_height, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:tube_height, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:exposure_hours)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :exposure_hours, :class => 'control-label'
+  div class='controls'
+    = f.text_field :exposure_hours, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:exposure_hours, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:µg_s_total)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :µg_s_total, :class => 'control-label'
+  div class='controls'
+    = f.text_field :µg_s_total, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:µg_s_total, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:µg_s_blank)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :µg_s_blank, :class => 'control-label'
+  div class='controls'
+    = f.text_field :µg_s_blank, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:µg_s_blank, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:so2_µg_m3)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :so2_µg_m3, :class => 'control-label'
+  div class='controls'
+    = f.text_field :so2_µg_m3, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:so2_µg_m3, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:so2_µg_ppb)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :so2_µg_ppb, :class => 'control-label'
+  div class='controls'
+    = f.text_field :so2_µg_ppb, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:so2_µg_ppb, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:mg_m3)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :mg_m3, :class => 'control-label'
+  div class='controls'
+    = f.text_field :mg_m3, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:mg_m3, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:ppb)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :ppb, :class => 'control-label'
+  div class='controls'
+    = f.text_field :ppb, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:ppb, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:no2_µg)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :no2_µg, :class => 'control-label'
+  div class='controls'
+    = f.text_field :no2_µg, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:no2_µg, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:site_id)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :site_id, :class => 'control-label'
+  div class='controls'
+    = f.text_field :site_id, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:site_id, :class => 'text-error') : pat(:example)
+
+div class="form-actions"
+  = f.submit pat(:save), :class => 'btn btn-primary'
+  |&nbsp;
+  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  |&nbsp;
+  = link_to pat(:cancel), url(:diffusion_tubes, :index), :class => 'btn btn-default'

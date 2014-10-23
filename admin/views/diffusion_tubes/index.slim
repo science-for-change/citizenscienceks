@@ -1,0 +1,74 @@
+ul class="nav nav-tabs"
+  li class="active" = link_to tag_icon(:list, pat(:list)), url(:diffusion_tubes, :index)
+  li = link_to tag_icon(:plus, pat(:new)), url(:diffusion_tubes, :new)
+
+div class="tabs-content"
+  table class="table table-striped table-hover table-condensed" id="list"
+    thead
+      tr
+        th class='header list-menu'
+          div class='dropdown'
+            a href='#' class='list-menu-toggle.dropdown-toggle dropdown-toggle' data-toggle='dropdown'
+              = tag_icon :magic
+              span class='caret'
+            ul class='list-menu dropdown-menu' role='dropdown'
+              li class='list-menu-wrapper' = link_to tag_icon('check-square-o', pat(:select_all)), '#', :id => 'select-all', :class => 'list-menu-link'
+              li class='list-menu-wrapper list-menu-wrapper-disabled' = link_to tag_icon('square-o', pat(:deselect_all)), '#', :id => 'deselect-all', :class => 'list-menu-link list-menu-link-disabled'
+              li class='list-menu-divider divider'
+              li class='list-menu-wrapper list-menu-wrapper-disabled'
+                = link_to tag_icon('trash-o', pat(:delete_selected)), '#', :id => 'delete-selected', :class => 'list-menu-link list-menu-link-disabled'
+                div class='list-menu-popover-delete-selected popover right'
+                  div class='arrow'
+                  h3 class='popover-title' = pat(:delete_selected_title)
+                  div class='popover-content'
+                    = form_tag url(:diffusion_tubes, :destroy_many), :method => :delete do
+                      = hidden_field_tag :diffusion_tube_ids, :'data-delete-many-ids' => true
+                      = submit_tag  pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
+                      div class='btn btn-default btn-small cancel' = pat(:cancel)
+        th class='header' = mat(:diffusion_tube, :id)
+        th class='header' = mat(:diffusion_tube, :no2_label)
+        th class='header' = mat(:diffusion_tube, :so2_label)
+        th class='header' = mat(:diffusion_tube, :tube_height)
+        th class='header' = mat(:diffusion_tube, :exposure_hours)
+        th class='header' = mat(:diffusion_tube, :µg_s_total)
+        th class='header' = mat(:diffusion_tube, :µg_s_blank)
+        th class='header' = mat(:diffusion_tube, :so2_µg_m3)
+        th class='header' = mat(:diffusion_tube, :so2_µg_ppb)
+        th class='header' = mat(:diffusion_tube, :mg_m3)
+        th class='header' = mat(:diffusion_tube, :ppb)
+        th class='header' = mat(:diffusion_tube, :no2_µg)
+        th class='header' = mat(:diffusion_tube, :site_id)
+        th class='header' = mat(:diffusion_tube, :created_at)
+        th class='header' = mat(:diffusion_tube, :updated_at)
+        th class='header list-row-action-header'
+
+    tbody
+      -@diffusion_tubes.each do |diffusion_tube|
+        tr class='list-row'
+          td class='list-column list-selectable' = check_box_tag 'diffusion_tube_ids[]', :value => diffusion_tube.id, :class => 'list-selectable-checkbox'
+          td class='list-column' = diffusion_tube.id
+          td class='list-column' = diffusion_tube.no2_label
+          td class='list-column' = diffusion_tube.so2_label
+          td class='list-column' = diffusion_tube.tube_height
+          td class='list-column' = diffusion_tube.exposure_hours
+          td class='list-column' = diffusion_tube.µg_s_total
+          td class='list-column' = diffusion_tube.µg_s_blank
+          td class='list-column' = diffusion_tube.so2_µg_m3
+          td class='list-column' = diffusion_tube.so2_µg_ppb
+          td class='list-column' = diffusion_tube.mg_m3
+          td class='list-column' = diffusion_tube.ppb
+          td class='list-column' = diffusion_tube.no2_µg
+          td class='list-column' = diffusion_tube.site_id
+          td class='list-column' = time_ago_in_words diffusion_tube.created_at
+          td class='list-column' = time_ago_in_words diffusion_tube.updated_at
+          td class='list-column list-row-action'
+            div class='list-row-action-wrapper'
+              = link_to tag_icon(:edit), :href => url(:diffusion_tubes, :edit, :id => diffusion_tube.id), :rel => :tooltip, :title => "#{pat(:edit)} diffusion_tube", :class => 'list-row-action-wrapper-link'
+              = link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} diffusion_tube", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
+              div class='popover list-row-action-popover-delete-one left'
+                div class='arrow'
+                h3 class='popover-title' = pat(:delete, :model => "diffusion_tube")
+                div class='popover-content'
+                  = form_tag url(:diffusion_tubes, :destroy, :id => diffusion_tube.id), :method => :delete do
+                    = submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
+                    div class='btn btn-default btn-small cancel' = pat(:cancel)

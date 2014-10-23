@@ -1,0 +1,73 @@
+- error = @ghost_wipe.errors.include?(:label)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :label, :class => 'control-label'
+  div class='controls'
+    = f.text_field :label, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    span class='help-inline' = error ? f.error_message_on(:label, :class => 'text-error') : pat(:example)
+- error = @ghost_wipe.errors.include?(:As)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :As, :class => 'control-label'
+  div class='controls'
+    = f.text_field :As, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:As, :class => 'text-error') : pat(:example)
+- error = @ghost_wipe.errors.include?(:Cd)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :Cd, :class => 'control-label'
+  div class='controls'
+    = f.text_field :Cd, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:Cd, :class => 'text-error') : pat(:example)
+- error = @ghost_wipe.errors.include?(:Cr)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :Cr, :class => 'control-label'
+  div class='controls'
+    = f.text_field :Cr, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:Cr, :class => 'text-error') : pat(:example)
+- error = @ghost_wipe.errors.include?(:Cu)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :Cu, :class => 'control-label'
+  div class='controls'
+    = f.text_field :Cu, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:Cu, :class => 'text-error') : pat(:example)
+- error = @ghost_wipe.errors.include?(:Hg)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :Hg, :class => 'control-label'
+  div class='controls'
+    = f.text_field :Hg, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:Hg, :class => 'text-error') : pat(:example)
+- error = @ghost_wipe.errors.include?(:Ni)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :Ni, :class => 'control-label'
+  div class='controls'
+    = f.text_field :Ni, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:Ni, :class => 'text-error') : pat(:example)
+- error = @ghost_wipe.errors.include?(:Pb)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :Pb, :class => 'control-label'
+  div class='controls'
+    = f.text_field :Pb, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:Pb, :class => 'text-error') : pat(:example)
+- error = @ghost_wipe.errors.include?(:Se)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :Se, :class => 'control-label'
+  div class='controls'
+    = f.text_field :Se, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:Se, :class => 'text-error') : pat(:example)
+- error = @ghost_wipe.errors.include?(:Zn)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :Zn, :class => 'control-label'
+  div class='controls'
+    = f.text_field :Zn, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:Zn, :class => 'text-error') : pat(:example)
+- error = @ghost_wipe.errors.include?(:site_id)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :site_id, :class => 'control-label'
+  div class='controls'
+    = f.text_field :site_id, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:site_id, :class => 'text-error') : pat(:example)
+
+div class="form-actions"
+  = f.submit pat(:save), :class => 'btn btn-primary'
+  |&nbsp;
+  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  |&nbsp;
+  = link_to pat(:cancel), url(:ghost_wipes, :index), :class => 'btn btn-default'

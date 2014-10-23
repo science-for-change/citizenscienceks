@@ -1,0 +1,72 @@
+ul class="nav nav-tabs"
+  li class="active" = link_to tag_icon(:list, pat(:list)), url(:ghost_wipes, :index)
+  li = link_to tag_icon(:plus, pat(:new)), url(:ghost_wipes, :new)
+
+div class="tabs-content"
+  table class="table table-striped table-hover table-condensed" id="list"
+    thead
+      tr
+        th class='header list-menu'
+          div class='dropdown'
+            a href='#' class='list-menu-toggle.dropdown-toggle dropdown-toggle' data-toggle='dropdown'
+              = tag_icon :magic
+              span class='caret'
+            ul class='list-menu dropdown-menu' role='dropdown'
+              li class='list-menu-wrapper' = link_to tag_icon('check-square-o', pat(:select_all)), '#', :id => 'select-all', :class => 'list-menu-link'
+              li class='list-menu-wrapper list-menu-wrapper-disabled' = link_to tag_icon('square-o', pat(:deselect_all)), '#', :id => 'deselect-all', :class => 'list-menu-link list-menu-link-disabled'
+              li class='list-menu-divider divider'
+              li class='list-menu-wrapper list-menu-wrapper-disabled'
+                = link_to tag_icon('trash-o', pat(:delete_selected)), '#', :id => 'delete-selected', :class => 'list-menu-link list-menu-link-disabled'
+                div class='list-menu-popover-delete-selected popover right'
+                  div class='arrow'
+                  h3 class='popover-title' = pat(:delete_selected_title)
+                  div class='popover-content'
+                    = form_tag url(:ghost_wipes, :destroy_many), :method => :delete do
+                      = hidden_field_tag :ghost_wipe_ids, :'data-delete-many-ids' => true
+                      = submit_tag  pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
+                      div class='btn btn-default btn-small cancel' = pat(:cancel)
+        th class='header' = mat(:ghost_wipe, :id)
+        th class='header' = mat(:ghost_wipe, :label)
+        th class='header' = mat(:ghost_wipe, :As)
+        th class='header' = mat(:ghost_wipe, :Cd)
+        th class='header' = mat(:ghost_wipe, :Cr)
+        th class='header' = mat(:ghost_wipe, :Cu)
+        th class='header' = mat(:ghost_wipe, :Hg)
+        th class='header' = mat(:ghost_wipe, :Ni)
+        th class='header' = mat(:ghost_wipe, :Pb)
+        th class='header' = mat(:ghost_wipe, :Se)
+        th class='header' = mat(:ghost_wipe, :Zn)
+        th class='header' = mat(:ghost_wipe, :site_id)
+        th class='header' = mat(:ghost_wipe, :created_at)
+        th class='header' = mat(:ghost_wipe, :updated_at)
+        th class='header list-row-action-header'
+
+    tbody
+      -@ghost_wipes.each do |ghost_wipe|
+        tr class='list-row'
+          td class='list-column list-selectable' = check_box_tag 'ghost_wipe_ids[]', :value => ghost_wipe.id, :class => 'list-selectable-checkbox'
+          td class='list-column' = ghost_wipe.id
+          td class='list-column' = ghost_wipe.label
+          td class='list-column' = ghost_wipe.As
+          td class='list-column' = ghost_wipe.Cd
+          td class='list-column' = ghost_wipe.Cr
+          td class='list-column' = ghost_wipe.Cu
+          td class='list-column' = ghost_wipe.Hg
+          td class='list-column' = ghost_wipe.Ni
+          td class='list-column' = ghost_wipe.Pb
+          td class='list-column' = ghost_wipe.Se
+          td class='list-column' = ghost_wipe.Zn
+          td class='list-column' = ghost_wipe.site_id
+          td class='list-column' = time_ago_in_words ghost_wipe.created_at
+          td class='list-column' = time_ago_in_words ghost_wipe.updated_at
+          td class='list-column list-row-action'
+            div class='list-row-action-wrapper'
+              = link_to tag_icon(:edit), :href => url(:ghost_wipes, :edit, :id => ghost_wipe.id), :rel => :tooltip, :title => "#{pat(:edit)} ghost_wipe", :class => 'list-row-action-wrapper-link'
+              = link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} ghost_wipe", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
+              div class='popover list-row-action-popover-delete-one left'
+                div class='arrow'
+                h3 class='popover-title' = pat(:delete, :model => "ghost_wipe")
+                div class='popover-content'
+                  = form_tag url(:ghost_wipes, :destroy, :id => ghost_wipe.id), :method => :delete do
+                    = submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
+                    div class='btn btn-default btn-small cancel' = pat(:cancel)

@@ -1,0 +1,8 @@
+ul class="nav nav-tabs"
+  li = link_to tag_icon(:list, pat(:list)), url(:diffusion_tubes, :index)
+  li = link_to tag_icon(:plus, pat(:new)), url(:diffusion_tubes, :new)
+  li class="active" = link_to tag_icon(:edit, pat(:edit)), url(:diffusion_tubes, :edit, :id => @diffusion_tube.id)
+
+div class="tabs-content"
+  = form_for :diffusion_tube, url(:diffusion_tubes, :update, :id => @diffusion_tube.id), :method => :put, :class => 'form-horizontal' do |f|
+    = partial 'diffusion_tubes/form', :locals => { :f => f }

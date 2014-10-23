@@ -1,0 +1,8 @@
+ul class="nav nav-tabs"
+  li = link_to tag_icon(:list, pat(:list)), url(:ghost_wipes, :index)
+  li = link_to tag_icon(:plus, pat(:new)), url(:ghost_wipes, :new)
+  li class="active" = link_to tag_icon(:edit, pat(:edit)), url(:ghost_wipes, :edit, :id => @ghost_wipe.id)
+
+div class="tabs-content"
+  = form_for :ghost_wipe, url(:ghost_wipes, :update, :id => @ghost_wipe.id), :method => :put, :class => 'form-horizontal' do |f|
+    = partial 'ghost_wipes/form', :locals => { :f => f }
