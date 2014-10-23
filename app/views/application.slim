@@ -9,9 +9,104 @@ html.no-js lang='en'
 
   body
 
-    = yield
+    .row
+      nav.top-bar [data-topbar role="navigation"]
+        ul.title-area
+          li.name
+            h1
+              a href="#"
+                img.sfc-logo src="/images/sfc.png"
+          li.toggle-topbar(menu-icon)
+            a href="#"
+              span Menu
+        section.top-bar-section
+          ul.right
+            li
+              a.navigation-button href="#" WHAT?
+            li
+              a.navigation-button href="#" WHY?
+            li
+              a.navigation-button href="#" WHO?
+
+    .row.full-width.hero.row-margin
+      .large-12
+        img src="/images/img_9157.jpg"
+        .caption
+          .caption-inner
+            .caption-content
+              h2 Air pollution in
+                 Kosovo causes 835 premature deaths, 310 new cases of
+                 chronic bronchitis, 600 hospital admissions and 11,600
+                 emergency visits each year <span class="small-print">(World Bank 2012)</span>
+
+    .full-width.dark-blue
+      .row.row-margins
+        .large-7.columns
+          h3 Kosovo: most polluted country in Europe
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique convallis enim. Nam interdum leo eu sodales consequat. Etiam non facilisis felis, at eleifend sem.</p>
+          p Nullam sollicitudin lacus a malesuada aliquam. Mauris pellentesque ut dolor ac laoreet. Suspendisse eu massa eget ante rutrum semper id et augue. Donec posuere mauris eu pulvinar aliquam. In eff>
+        .large-5.columns
+          img src="http://placehold.it/400x400"
+
+    .row.row-margins
+      .large-5.columns
+        img src="/images/sck.png"
+      .large-7.columns
+        h3 Some words about methods
+        p Diffusion tubes and Smart Citizen Kits. Nullam sollicitudin lacus a malesuada aliquam. Mauris pellentesque ut dolor ac laoreet. Suspendisse eu massa eget ante rutrum semper id et augue. Donec posu>
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique convallis enim. Nam interdum leo eu sodales consequat. Etiam non facilisis felis, at eleifend sem.</p>
+
+    .full-width.dark-blue
+      .row.row-margins
+        .large-7.columns
+          h3 More content about the project
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique convallis enim. Nam interdum leo eu sodales consequat. Etiam non facilisis felis, at eleifend sem.</p>
+          p Nullam sollicitudin lacus a malesuada aliquam. Mauris pellentesque ut dolor ac laoreet. Suspendisse eu massa eget ante rutrum semper id et augue. Donec posuere mauris eu pulvinar aliquam. In eff>
+        .large-5.columns
+          img src="http://placehold.it/400x400"
+
+
+    .full-width style="height:700px"
+      .row.row-margins
+        .large-12 style="text-align:center"
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          h3 Map goes here
+
+    .full-width.black
+      .row.row-margins
+        .large-12.columns
+          ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
+            li.logo-container
+              img.logo src="/images/mzv.png"
+            li.logo-container
+              img.logo src="/images/tol.png"
+            li.logo-container
+              img.logo src="/images/unicef.png"
+            li.logo-container
+              img.logo src="/images/pen.png"
+            li.logo-container
+              img.logo src="/images/lab.png"
+            li.logo-container
+              img.logo src="/images/internet_artizan.png"
+            li.logo-container
+              img.logo src="/images/ada.png"
+
+
+
     = javascript_include_tag 'vendor/jquery'
     = javascript_include_tag 'vendor/fastclick'
-    = javascript_include_tag 'foundation/foundation.js'
+    = javascript_include_tag 'foundation.min.js'
     javascript:
       $(document).foundation();
