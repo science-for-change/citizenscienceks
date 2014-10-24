@@ -58,7 +58,7 @@ div class="tabs-content"
           td class='list-column' = diffusion_tube.mg_m3
           td class='list-column' = diffusion_tube.ppb
           td class='list-column' = diffusion_tube.no2_µg
-          td class='list-column' = diffusion_tube.site_id
+          td class='list-column' = diffusion_tube.site.name if diffusion_tube.site
           td class='list-column' = time_ago_in_words diffusion_tube.created_at
           td class='list-column' = time_ago_in_words diffusion_tube.updated_at
           td class='list-column list-row-action'
