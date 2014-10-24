@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 7) do
+ActiveRecord::Schema.define(version: 8) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,15 +45,15 @@ ActiveRecord::Schema.define(version: 7) do
 
   create_table "ghost_wipes", force: true do |t|
     t.string   "label"
-    t.float    "As"
-    t.float    "Cd"
-    t.float    "Cr"
-    t.float    "Cu"
-    t.float    "Hg"
-    t.float    "Ni"
-    t.float    "Pb"
-    t.float    "Se"
-    t.float    "Zn"
+    t.string   "As"
+    t.string   "Cd"
+    t.string   "Cr"
+    t.string   "Cu"
+    t.string   "Hg"
+    t.string   "Ni"
+    t.string   "Pb"
+    t.string   "Se"
+    t.string   "Zn"
     t.integer  "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
