@@ -13,12 +13,12 @@ $topbar-height: 70px;
 $body-font-family: "Questrial", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $h2-font-reduction: rem-calc(22);
 
-// You can import only specific elements by adjusting the import below
 @import "foundation";
 
 // Import fonts
 @import url(http://fonts.googleapis.com/css?family=Questrial);
 @import url(http://fonts.googleapis.com/css?family=Exo:300);
+@import "jquery-ui.min.css";
 
 // Colours
 $white: #ddd; 
@@ -30,6 +30,12 @@ $black: #1C2F31;
 .black {
   background: $black;
   color:$white;
+// You can import only specific elements by adjusting the import below
+}
+
+.scrolled-down {
+  background: #fff;
+  border-bottom: 1px solid #ccc;
 }
 
 .dark-blue {
@@ -41,7 +47,19 @@ $black: #1C2F31;
   font-family: 'Exo', sans-serif;
   color:$white;
 }
-
+.limited-width {
+  width:$row-width;
+  margin: auto;
+}
+.fixed-nav {
+  text-align:center;
+  top:0;
+  right:0;
+  left:0;
+  position:fixed;
+  z-index:99999;
+  width:100%;
+}
 .row-margins {
   padding-top:75px;
   padding-bottom:75px;
@@ -51,7 +69,9 @@ $black: #1C2F31;
   min-width:100% !important;
 }
 .hero {
-  position:relative;
+  height:100%;
+  background: transparent url("/images/img_9157.jpg") no-repeat center;
+  background-size: cover;
 }
 .hero .caption {
   position:absolute;
@@ -64,10 +84,9 @@ $black: #1C2F31;
 .hero .caption-inner {
   display:table;
   width:100%;
-  height:80%;
+  height:90%;
 }
 .hero .caption-content {
-  font-size:40px;
   display:table-cell;
   text-align: center;
   vertical-align:bottom;
@@ -78,6 +97,7 @@ h2 {
   font-family: 'Exo', sans-serif;
   color: $white;
   text-rendering: auto;
+  font-size:40px;
 }
 .small-print {
   font-size:12px;

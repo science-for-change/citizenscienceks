@@ -9,8 +9,8 @@ html.no-js lang='en'
 
   body
 
-    .row
-      nav.top-bar [data-topbar role="navigation"]
+    .row.full-width.fixed-nav.at-top
+      nav.top-bar.limited-width
         ul.title-area
           li.name
             h1
@@ -28,16 +28,14 @@ html.no-js lang='en'
             li
               a.navigation-button href="#" WHO?
 
-    .row.full-width.hero.row-margin
-      .large-12
-        img src="/images/img_9157.jpg"
-        .caption
-          .caption-inner
-            .caption-content
-              h2 Air pollution in
-                 Kosovo causes 835 premature deaths, 310 new cases of
-                 chronic bronchitis, 600 hospital admissions and 11,600
-                 emergency visits each year <span class="small-print">(World Bank 2012)</span>
+    .row.full-width.hero
+      .large-12.caption
+        .caption-inner
+          .caption-content
+            h2 Air pollution in
+               Kosovo causes 835 premature deaths, 310 new cases of
+               chronic bronchitis, 600 hospital admissions and 11,600
+               emergency visits each year <span class="small-print">(World Bank 2012)</span>
 
     .full-width.dark-blue
       .row.row-margins
@@ -105,8 +103,10 @@ html.no-js lang='en'
 
 
 
-    = javascript_include_tag 'vendor/jquery'
-    = javascript_include_tag 'vendor/fastclick'
+    = javascript_include_tag 'vendor/jquery.min.js'
+    = javascript_include_tag 'vendor/jquery-ui.min.js'
+    = javascript_include_tag 'vendor/fastclick.min.js'
     = javascript_include_tag 'foundation.min.js'
+    = javascript_include_tag 'main.js'
     javascript:
       $(document).foundation();
