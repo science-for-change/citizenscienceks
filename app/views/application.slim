@@ -9,8 +9,9 @@ html.no-js lang='en'
 
   body
 
-    .row.full-width.fixed-nav.at-top
-      nav.top-bar.limited-width
+    .top-bar-background
+    .row.full-width-top-bar.fixed.at-top
+      nav.top-bar [data-topbar role="navigation"]
         ul.title-area
           li.name
             h1
@@ -104,7 +105,6 @@ html.no-js lang='en'
 
 
     = javascript_include_tag 'vendor/jquery.min.js'
-    = javascript_include_tag 'vendor/jquery-ui.min.js'
     = javascript_include_tag 'vendor/fastclick.min.js'
     = javascript_include_tag 'foundation.min.js'
     = javascript_include_tag 'main.js'
