@@ -5,12 +5,31 @@ html.no-js lang='en'
     meta charset='utf-8'
     title My application
     = stylesheet_link_tag :application
+    = stylesheet_link_tag 'https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css'
     = javascript_include_tag 'vendor/modernizr'
 
   body
 
-    .top-bar-background
-    .row.full-width-top-bar.fixed.at-top
+    .top-bar-background.show-for-medium-up-only
+    .row.full-width-top-bar.show-for-small-only
+      nav.top-bar [data-topbar role="navigation"]
+        ul.title-area
+          li.name
+            h1
+              a href="#"
+                img.sfc-logo src="/images/sfc.png"
+          li.toggle-topbar(menu-icon)
+            a href="#"
+              span Menu
+        section.top-bar-section
+          ul.right
+            li
+              a.navigation-button href="#" WHAT?
+            li
+              a.navigation-button href="#" WHY?
+            li
+              a.navigation-button href="#" WHO?
+    .row.full-width-top-bar.fixed.show-for-medium-up
       nav.top-bar [data-topbar role="navigation"]
         ul.title-area
           li.name
@@ -64,24 +83,7 @@ html.no-js lang='en'
         .large-5.columns
           img src="http://placehold.it/400x400"
 
-
-    .full-width style="height:700px"
-      .row.row-margins
-        .large-12 style="text-align:center"
-          br
-          br
-          br
-          br
-          br
-          br
-          br
-          br
-          br
-          br
-          br
-          br
-          br
-          h3 Map goes here
+    #map.full-width.full-height
 
     .full-width.black
       .row.row-margins
@@ -107,6 +109,7 @@ html.no-js lang='en'
     = javascript_include_tag 'vendor/jquery.min.js'
     = javascript_include_tag 'vendor/fastclick.min.js'
     = javascript_include_tag 'foundation.min.js'
-    = javascript_include_tag 'main.js'
+    = javascript_include_tag 'https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'
+    = javascript_include_tag 'frontpage.js'
     javascript:
       $(document).foundation();
