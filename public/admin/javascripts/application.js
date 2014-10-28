@@ -31,7 +31,7 @@
     if (list.length > 0) {
       listCheckboxes = list.find(listCheckboxesSelector);
       listCheckboxesLength = listCheckboxes.length;
-      
+
       // Confirm before deleting one item
       $('.list-row-action-delete-one').on('click', function(ev) {
         ev.preventDefault();
@@ -49,7 +49,7 @@
         var checkbox, willBeChecked;
         ev.stopPropagation();
 
-        if (ev.currentTarget.tagName == 'TR') { 
+        if (ev.currentTarget.tagName == 'TR') {
           checkbox = $(this).find('.list-selectable-checkbox');
           willBeChecked = !checkbox.prop('checked');
           checkbox.prop('checked', willBeChecked);
@@ -57,7 +57,7 @@
           generalToggle();
         }
       });
-      // Select all action 
+      // Select all action
       $('#select-all').on('click', function(ev) {
         ev.preventDefault();
         ev.stopPropagation();
@@ -69,7 +69,7 @@
         toggleAction('#select-all', true);
         toggleAction('#deselect-all', false);
       });
-      // Deselect all action 
+      // Deselect all action
       $('#deselect-all').on('click', function(ev) {
         ev.preventDefault();
         if ($(this).is('.list-menu-link-disabled')) return;
@@ -89,7 +89,7 @@
         $(this).addClass('active')
           .siblings('.list-menu-popover-delete-selected').first().show()
           .find('.cancel').on('click', function() {
-          
+
             // Hide the popover on cancel
             $(this).parents('.list-menu-popover-delete-selected').hide()
               .siblings('#delete-selected').removeClass('active').parent().removeClass('active');
@@ -115,4 +115,10 @@
     var error_input;
     if (error_input = $('.has-error :input').first()) { error_input.focus(); }
   });
+
+
+  // datepickers for diffusion tubes
+  if ($("#date_installed").length) $("#date_installed").datepicker({ dateFormat: "yy-mm-dd" });
+  if ($("#date_removed").length) $("#date_removed").datepicker({ dateFormat: "yy-mm-dd" });
 }(window.jQuery);
+

@@ -70,13 +70,13 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :date_installed, :class => 'control-label'
   div class='controls'
-    = f.text_field :date_installed, :class => 'form-control input-large input-with-feedback'
+    = f.text_field :date_installed, :class => 'form-control input-large input-with-feedback', id: "date_installed"
     span class='help-inline' = error ? f.error_message_on(:date_installed, :class => 'text-error') : pat(:example)
 - error = @diffusion_tube.errors.include?(:date_removed)
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :date_removed, :class => 'control-label'
   div class='controls'
-    = f.text_field :date_removed, :class => 'form-control input-large input-with-feedback'
+    = f.text_field :date_removed, :class => 'form-control input-large input-with-feedback', id: "date_removed"
     span class='help-inline' = error ? f.error_message_on(:date_removed, :class => 'text-error') : pat(:example)
 - error = @diffusion_tube.errors.include?(:staff_involved)
 fieldset class='control-group#{error ? ' has-error' : ''}'
