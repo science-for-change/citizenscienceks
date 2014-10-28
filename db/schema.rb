@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 8) do
+ActiveRecord::Schema.define(version: 9) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(version: 8) do
     t.integer  "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date_installed"
+    t.date     "date_removed"
+    t.text     "staff_involved"
   end
 
   create_table "ghost_wipes", force: true do |t|

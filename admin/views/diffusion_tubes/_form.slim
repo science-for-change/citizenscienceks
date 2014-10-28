@@ -64,6 +64,28 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
   div class='controls'
     = f.text_field :no2_µg, :class => 'form-control input-large input-with-feedback'
     span class='help-inline' = error ? f.error_message_on(:no2_µg, :class => 'text-error') : pat(:example)
+
+
+- error = @diffusion_tube.errors.include?(:date_installed)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :date_installed, :class => 'control-label'
+  div class='controls'
+    = f.text_field :date_installed, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:date_installed, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:date_removed)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :date_removed, :class => 'control-label'
+  div class='controls'
+    = f.text_field :date_removed, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:date_removed, :class => 'text-error') : pat(:example)
+- error = @diffusion_tube.errors.include?(:staff_involved)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :staff_involved, :class => 'control-label'
+  div class='controls'
+    = f.text_field :staff_involved, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:staff_involved, :class => 'text-error') : pat(:example)
+
+
 - error = @diffusion_tube.errors.include?(:site_id)
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :site_id, :class => 'control-label'
