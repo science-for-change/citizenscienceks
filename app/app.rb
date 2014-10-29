@@ -15,6 +15,10 @@ module Citizenscienceks
       render "frontpage"
     end
 
+    get 'smart_citizen_kits.geojson' do
+      SckDevice.all.to_json
+    end
+
     ##
     # Caching support.
     #

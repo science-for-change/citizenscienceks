@@ -4,6 +4,27 @@ class SckDevice < ActiveRecord::Base
   has_many :posts
 
 
+  def as_json(options)
+    {
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [geo_lat, geo_long]
+      },
+      properties: {
+        title: title,
+        description: description,
+        location: location,
+        city: city,
+        country: country,
+        exposure: exposure,
+        elevation: elevation,
+        created: created,
+        last_insert_datetime: last_insert_datetime
+      }
+    }.to_json
+  end
+
   def get_attributes
 
     # initialize client

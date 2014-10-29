@@ -30,6 +30,11 @@ $(document).ready(
     map.doubleClickZoom.disable();
     map.scrollWheelZoom.disable();
 
+    var featureLayer = L.mapbox.featureLayer()
+      .loadURL('/smart_citizen_kits.geojson')
+      .addTo(map);
+
+
     // Disable tap handler, if present.
     if (map.tap) map.tap.disable();
   }
