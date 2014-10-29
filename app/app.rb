@@ -16,6 +16,7 @@ module Citizenscienceks
     end
 
     get 'smart_citizen_kits.geojson' do
+      content_type :json
       SckDevice.all.to_json
     end
 

@@ -9,7 +9,7 @@ class SckDevice < ActiveRecord::Base
       type: "Feature",
       geometry: {
         type: "Point",
-        coordinates: [geo_lat, geo_long]
+        coordinates: [geo_long.to_f,geo_lat.to_f]
       },
       properties: {
         title: title,
@@ -22,7 +22,7 @@ class SckDevice < ActiveRecord::Base
         created: created,
         last_insert_datetime: last_insert_datetime
       }
-    }.to_json
+    }
   end
 
   def get_attributes
