@@ -120,5 +120,6 @@
   // datepickers for diffusion tubes
   if ($("#date_installed").length) $("#date_installed").datepicker({ dateFormat: "yy-mm-dd" });
   if ($("#date_removed").length) $("#date_removed").datepicker({ dateFormat: "yy-mm-dd" });
+  if ($("#sampling_date").length) $("#sampling_date").datepicker({ dateFormat: "yy-mm-dd" });
 }(window.jQuery);
 
