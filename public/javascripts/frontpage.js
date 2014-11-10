@@ -31,7 +31,7 @@ $(document).ready(
     map.scrollWheelZoom.disable();
 
     var featureLayer = L.mapbox.featureLayer()
-      .loadURL('/smart_citizen_kits.geojson')
+      .loadURL('/sites.geojson')
       .addTo(map);
 
 

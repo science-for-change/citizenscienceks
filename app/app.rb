@@ -20,6 +20,11 @@ module Citizenscienceks
       SckDevice.all.to_json
     end
 
+    get 'sites.geojson' do
+      content_type :json
+      Site.all.to_json
+    end
+
     ##
     # Caching support.
     #
