@@ -3,7 +3,7 @@ class SckDevice < ActiveRecord::Base
   belongs_to :site
   has_many :posts
 
-  def daily_average_no2(date_from=nil, date_to=nil)
+  def average_no2(date_from=nil, date_to=nil)
     posts = if date_from && date_to
               self.posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).select(:no2)
             else
