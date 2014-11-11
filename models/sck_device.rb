@@ -3,13 +3,36 @@ class SckDevice < ActiveRecord::Base
   belongs_to :site
   has_many :posts
 
-  def average_no2(date_from=nil, date_to=nil)
+  def average_no2(**args)
+    date_from = args[:date_from] || nil
+    date_to = args[:date_to] || nil
+    ppm = args[:ppm] || nil
     posts = if date_from && date_to
               self.posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).select(:no2)
             else
               self.posts.select(:no2)
             end
-    posts.map(&:no2).sum / posts.size.to_f
+    if ppm
+      posts.map(&:no2_ppm).sum / posts.size.to_f
+    else
+      posts.map(&:no2).sum / posts.size.to_f
+    end
+  end
+
+  def average_co(**args)
+    date_from = args[:date_from] || nil
+    date_to = args[:date_to] || nil
+    ppm = args[:ppm] || nil
+    posts = if date_from && date_to
+              self.posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).select(:co)
+            else
+              self.posts.select(:co)
+            end
+    if ppm
+      posts.map(&:co_ppm).sum / posts.size.to_f
+    else
+      posts.map(&:co).sum / posts.size.to_f
+    end
   end
 
   def as_json(options)
