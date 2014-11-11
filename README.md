@@ -24,7 +24,7 @@ Create a gemset for citizenscienceks  project, e.g.
 rvm gemset create citizenscienceks
 ```
 
-### Install pow (OS X only, not necessary to get project running locally, more nice to have)
+### Install pow (OS X only, not necessary to get project running locally, more "a nice to have")
 
 Follow instructions at http://pow.cx/
 
@@ -52,6 +52,11 @@ rake db:migrate
 rake db:seed
 ```
 
+If you are a core member, you may have access to the live database, in
+which case you should NOT create the local database, but instead pull
+the data form heroku. Scroll down for contact details to get more info
+about this option.
+
 ### Start server and go!
 
 #### Using pow
@@ -60,7 +65,7 @@ If you are running pow, then create a symbolic link of the project
 folder to ~/.pow/ :
 
 ```
-ln -s /path/to/project ~/.pow/citizenscience
+ln -s /path/to/project ~/.pow/citizenscienceks
 ```
 
 Point your browser to http://www.citizenscienceks.dev and rejoice!
