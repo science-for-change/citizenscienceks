@@ -8,9 +8,9 @@ class SckDevice < ActiveRecord::Base
     date_to = args[:date_to] || nil
     ppm = args[:ppm] || nil
     posts = if date_from && date_to
-              self.posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).select(:no2)
+              self.posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).where("no2 > 0.01").select(:no2)
             else
-              self.posts.select(:no2)
+              self.posts.where("no2 > 0.01").select(:no2)
             end
     if ppm
       posts.map(&:no2_ppm).sum / posts.size.to_f
