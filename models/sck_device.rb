@@ -58,13 +58,10 @@ class SckDevice < ActiveRecord::Base
 
   def get_attributes
 
-    # initialize client
     client = SmartCitizenClient.new self.SCK_API_key, self.SCK_id
 
-    # get latest post to get created timestamp
     if post = client.get_latest_post
 
-      # save data
       if d = post['device']
 
         self.title = d['title'] || nil
@@ -85,13 +82,10 @@ class SckDevice < ActiveRecord::Base
 
   def get_all_posts
 
-    # initialize client
     client = SmartCitizenClient.new self.SCK_API_key, self.SCK_id
 
-    # get latest post to get created timestamp
     if latest_post = client.get_latest_post
 
-      # save all posts if any found
       installation_datetime = DateTime.strptime(latest_post['device']['created'], "%Y-%m-%d %H:%M:%S %Z").to_date
       latest_local_timestamp = self.posts.order(:timestamp).size > 0 ? self.posts.order(:timestamp).last.timestamp : nil
       date =  if latest_local_timestamp
@@ -124,10 +118,6 @@ class SckDevice < ActiveRecord::Base
         end
         date += 1
       end
-
-
     end
-
   end
-
 end
