@@ -32,7 +32,14 @@ $(document).ready(
 
     var featureLayer = L.mapbox.featureLayer()
       .loadURL('/sites.geojson')
-      .addTo(map);
+      .on('ready', function(e) {
+        var clusterGroup = new L.MarkerClusterGroup();
+        e.target.eachLayer(function(layer) {
+          clusterGroup.addLayer(layer);
+        });
+        map.addLayer(clusterGroup);
+      });
+      //.addTo(map);
 
 
     // Disable tap handler, if present.
