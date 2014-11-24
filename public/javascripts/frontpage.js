@@ -35,8 +35,19 @@ $(document).ready(
       .on('ready', function(e) {
         var clusterGroup = new L.MarkerClusterGroup();
         e.target.eachLayer(function(layer) {
+          layer.setIcon(L.mapbox.marker.icon({'marker-symbol': 'circle-stroked', 'marker-color': '998445'}));
+          console.log(layer)
+          layer.bindPopup(" <h3>" + layer.feature.properties.title + "</h3>\
+                            <p>available data at this location</p>\
+                            <ul>\
+                              <li>ghost wipe data</li>\
+                              <li>diffusion tube data</li>\
+                              <li>smart citizen kit data</li>\
+                            </ul>");
+
           clusterGroup.addLayer(layer);
         });
+
         map.addLayer(clusterGroup);
       });
       //.addTo(map);
