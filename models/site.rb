@@ -12,8 +12,24 @@ class Site < ActiveRecord::Base
       },
       properties: {
         title: name,
-        description: location
+        description: location,
+        has_diffusion_tubes: has_diffusion_tubes,
+        has_ghost_wipes: has_ghost_wipes,
+        has_sck_devices: has_sck_devices
       }
     }
   end
+
+  def has_diffusion_tubes
+    diffusion_tubes.size > 0
+  end
+
+  def has_ghost_wipes
+    ghost_wipes.size > 0
+  end
+
+  def has_sck_devices
+    sck_devices.size > 0
+  end
+
 end
