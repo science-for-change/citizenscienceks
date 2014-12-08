@@ -8,104 +8,185 @@ html.no-js lang='en'
     = stylesheet_link_tag 'https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css'
     = stylesheet_link_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css'
     = stylesheet_link_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css'
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
 
     = javascript_include_tag 'vendor/modernizr'
 
   body
 
-    .top-bar-background.show-for-medium-up-only
-    .row.full-width-top-bar.show-for-small-only
-      nav.top-bar [data-topbar role="navigation"]
-        ul.title-area
-          li.name
+    nav.navbar.navbar-default.navbar-fixed-top role="navigation" 
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href="#"
+            img.sfc-logo src="/images/sfc.png" height="30"
+
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.navigation-button href="#" Project Info
+            li
+              a.navigation-button href="#" Stories
+            li
+              a.navigation-button href="#" Data
+            li
+              a.navigation-button href="#" Participate
+            li
+              a.navigation-button href="#" Connect
+            li
+              a.navigation-button href="#" About Us
+            
+
+
+    .jumbotron
+      .v-center-container
+        .container.text-center
+          .row
+            .col-xs-10.col-xs-push-1
+              h1  Air pollution in Kosovo causes <strong>835</strong> premature deaths, <strong>310</strong> new cases of chronic bronchitis, <strong>600</strong> hospital admissions and <strong>11,600</strong> emergency visits each year <span class="super-small"><br>(World Bank 2012)</span>
+      .glyphicon.glyphicon-chevron-down.scroll-down.bounce.animated.hinge.infinite
+    .page-section
+      .container
+        .row
+          .col-xs-12
+            h2 FAQ
+          .col-xs-12.col-md-6
+            #faq.panel-group aria-multiselectable="true" role="tablist" 
+              .panel.panel-default
+                #headingOne.panel-heading role="tab" 
+                  h4.panel-title
+                    a aria-controls="collapseOne" aria-expanded="true" data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 
+                      |  Science for Change answers and questions?
+                #collapseOne.panel-collapse.collapse.in aria-labelledby="headingOne" role="tabpanel" 
+                  .panel-body
+                    | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              .panel.panel-default
+                #headingTwo.panel-heading role="tab" 
+                  h4.panel-title
+                    a.collapsed aria-controls="collapseTwo" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo" 
+                      |  Science for Change answers and questions?
+                #collapseTwo.panel-collapse.collapse aria-labelledby="headingTwo" role="tabpanel" 
+                  .panel-body
+                    | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              .panel.panel-default
+                #headingThree.panel-heading role="tab" 
+                  h4.panel-title
+                    a.collapsed aria-controls="collapseThree" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#collapseThree" 
+                      |  Science for Change answers and questions?
+                #collapseThree.panel-collapse.collapse aria-labelledby="headingThree" role="tabpanel" 
+                  .panel-body
+                    | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+
+
+          .col-xs-12.col-md-6
+            img class="img-responsive" src="http://placehold.it/600x400" alt=""/
+            p
+              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
+
+    .page-section.alternative-color
+      .container
+        .row
+          .col-xs-12.col-md-4
+            img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
+            p
+              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
+          .col-xs-12.col-md-4
+            img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
+            p
+              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
+          .col-xs-12.col-md-4
+            img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
+            p
+              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
+
+    .page-section
+      .container
+        .row
+          .col-xs-12.col-md-8
+            h2 Data Intro
+            p
+              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
+            p 
+              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          .col-xs-12.col-md-4
+            h2 Finding & Methods
+            p 
+              ul
+                li 
+                  a href="#"
+                    | How to add your Smart Citizen Kit?
+                li 
+                  a href="#"
+                    | How to add your observations?
+                li
+                  a href="#"
+                    | Links to resources
+
+    #map
+
+    #participate.page-section
+      .container
+        .row
+          .col-xs-12.col-md-8.col-md-push-2.text-center
             h1
-              a href="#"
-                img.sfc-logo src="/images/sfc.png"
-          li.toggle-topbar(menu-icon)
-            a href="#"
-              span Menu
-        section.top-bar-section
-          ul.right
-            li
-              a.navigation-button href="#" WHAT?
-            li
-              a.navigation-button href="#" WHY?
-            li
-              a.navigation-button href="#" WHO?
-    .row.full-width-top-bar.fixed.show-for-medium-up
-      nav.top-bar [data-topbar role="navigation"]
-        ul.title-area
-          li.name
+              | Participate
+            p 
+              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+
+    .page-section.citizen-color
+      .container
+        .row
+          .col-xs-12.col-md-8.col-md-push-2.text-center
             h1
-              a href="#"
-                img.sfc-logo src="/images/sfc.png"
-          li.toggle-topbar(menu-icon)
-            a href="#"
-              span Menu
-        section.top-bar-section
-          ul.right
-            li
-              a.navigation-button href="#" WHAT?
-            li
-              a.navigation-button href="#" WHY?
-            li
-              a.navigation-button href="#" WHO?
+              | About Us
+            p 
+              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            ul.list-inline.breathe
+              li
+                a href="#"
+                  span.fa-stack.fa-lg
+                    i.fa.fa-circle.fa-stack-2x
+                    i.fa.fa-facebook.fa-stack-1x.fa-inverse
+              li
+                a href="#"
+                  span.fa-stack.fa-lg
+                    i.fa.fa-circle.fa-stack-2x
+                    i.fa.fa-twitter.fa-stack-1x.fa-inverse
+              li
+                a href="#"
+                  span.fa-stack.fa-lg
+                    i.fa.fa-circle.fa-stack-2x
+                    i.fa.fa-google-plus.fa-stack-1x.fa-inverse
+              li
+                a href="#"
+                  span.fa-stack.fa-lg
+                    i.fa.fa-circle.fa-stack-2x
+                    i.fa.fa-youtube.fa-stack-1x.fa-inverse
+                  
 
-    .row.full-width.hero
-      .large-12.caption
-        .caption-inner
-          .caption-content
-            h2 Air pollution in
-               Kosovo causes 835 premature deaths, 310 new cases of
-               chronic bronchitis, 600 hospital admissions and 11,600
-               emergency visits each year <span class="small-print">(World Bank 2012)</span>
-
-    .full-width.dark-blue
-      .row.row-margins
-        .large-7.columns
-          h3 Kosovo: most polluted country in Europe
-          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique convallis enim. Nam interdum leo eu sodales consequat. Etiam non facilisis felis, at eleifend sem.</p>
-          p Nullam sollicitudin lacus a malesuada aliquam. Mauris pellentesque ut dolor ac laoreet. Suspendisse eu massa eget ante rutrum semper id et augue. Donec posuere mauris eu pulvinar aliquam. In eff>
-        .large-5.columns
-          img src="http://placehold.it/400x400"
-
-    .row.row-margins
-      .large-5.columns
-        img src="/images/sck.png"
-      .large-7.columns
-        h3 Some words about methods
-        p Diffusion tubes and Smart Citizen Kits. Nullam sollicitudin lacus a malesuada aliquam. Mauris pellentesque ut dolor ac laoreet. Suspendisse eu massa eget ante rutrum semper id et augue. Donec posu>
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique convallis enim. Nam interdum leo eu sodales consequat. Etiam non facilisis felis, at eleifend sem.</p>
-
-    .full-width.dark-blue
-      .row.row-margins
-        .large-7.columns
-          h3 More content about the project
-          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique convallis enim. Nam interdum leo eu sodales consequat. Etiam non facilisis felis, at eleifend sem.</p>
-          p Nullam sollicitudin lacus a malesuada aliquam. Mauris pellentesque ut dolor ac laoreet. Suspendisse eu massa eget ante rutrum semper id et augue. Donec posuere mauris eu pulvinar aliquam. In eff>
-        .large-5.columns
-          img src="http://placehold.it/400x400"
-
-    #map.full-width.full-height
-
-    .full-width.black
-      .row.row-margins
-        .large-12.columns
-          ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
-            li.logo-container
-              img.logo src="/images/mzv.png"
-            li.logo-container
-              img.logo src="/images/tol.png"
-            li.logo-container
-              img.logo src="/images/unicef.png"
-            li.logo-container
-              img.logo src="/images/pen.png"
-            li.logo-container
-              img.logo src="/images/lab.png"
-            li.logo-container
-              img.logo src="/images/internet_artizan.png"
-            li.logo-container
-              img.logo src="/images/ada.png"
+    footer#logos.page-section.citizen-dark
+      .container
+        .row
+          .col-xs-12
+            ul.list-unstyled.row
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/mzv.png"
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/tol.png"
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/unicef.png"
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/pen.png"
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/lab.png"
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/internet_artizan.png"
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/ada.png"
 
 
 
@@ -115,5 +196,4 @@ html.no-js lang='en'
     = javascript_include_tag '//api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'
     = javascript_include_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'
     = javascript_include_tag 'frontpage.js'
-    javascript:
-      $(document).foundation();
+    = javascript_include_tag 'bootstrap.js'

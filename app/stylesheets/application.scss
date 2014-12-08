@@ -1,141 +1,253 @@
-// Make sure the charset is set appropriately
-@charset "UTF-8";
 
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400italic,700italic,300,700,300italic,400);
 
-// normalize
-@import "normalize";
+@import "variables.scss";
+@import "bootstrap.scss";
 
-// Global Foundation Settings
-@import "foundation/settings";
-@import "foundation/functions";
-
-$topbar-height: 70px;
-$body-font-family: "Questrial", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-$h2-font-reduction: rem-calc(12);
-
-@import "foundation";
-
-// Import fonts
-@import url(http://fonts.googleapis.com/css?family=Questrial);
-@import url(http://fonts.googleapis.com/css?family=Exo:300);
-
-// Colours
-$white: #ddd; 
-$blue: #81CECF;
-$dark-blue: #487174;
-$orange: #998445;
-$black: #1C2F31;
-
-.black {
-  background: $black;
-  color:$white;
-// You can import only specific elements by adjusting the import below
+.navbar-brand {
+  padding: 25px 15px;
 }
 
-.dark-blue {
-  background: $dark-blue;
-  color:$white;
+// Common helper styles
+html, body {
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 
-.dark-blue h3 {
-  font-family: 'Exo', sans-serif;
-  color:$white;
-}
-.row-margins {
-  padding-top:75px;
-  padding-bottom:75px;
-}
-.full-width-top-bar {
-  background: transparent;
-  width:100%;
-}
-.top-bar-background {
-  display:none;
-  background:#fff;
-  position:fixed;
-  top:0px;
-  left:0px;
-  height:70px;
-  width:100%;
-  z-index:98;
-  border-bottom: 1px solid #ccc;
+.super-small {
+  font-size: .4em;
 }
 
-.full-width {
-  min-width:100% !important;
-  right:0;
+.breathe {
+  margin-top: 40px;
+  padding-top: 40px;
 }
-.full-height {
-  height:100%;
+
+// Typographic helpers
+h1,h2,h3,h4,h5,h6 {
+  margin-bottom: 30px;
 }
-.fixed {
-  right:0;
+p {
+  margin-bottom: 20px;
 }
-.hero {
-  height:100%;
-  background: transparent url("/images/img_9157.jpg") no-repeat center;
-  background-size: cover;
-  margin-top:-70px;
+
+// Map styles
+#map {
+  height: 90%;
+  width: 100%;
 }
-.hero .caption {
-  position:absolute;
-  top:5px;
-  left:0px;
-  right:0;
-  bottom:10px;
-  overflow:auto;
+
+// Hero element
+
+.v-center-container {
+  position: absolute;
+  top: 50%; right: 0; bottom: auto; left: 0;
+  height: auto;
 }
-.hero .caption-inner {
-  display:table;
-  width:100%;
-  height:80%;
+
+.jumbotron {
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 10;
+    background: transparent url("/images/polygon.png") no-repeat left top;
+    background-size: fill;
+  }
+  &:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 10;
+    background: transparent url("/images/polygon-alt.png") no-repeat right bottom;
+    background-size: fill;
+  }
+  background: transparent url("/images/hero-bg.jpg") no-repeat center;
+  background-position: cover;
+  margin: 0;
+  min-height: 90%;
+  position: relative;
+  @media screen and (min-width: $screen-md-min) {
+    min-height: 90%
+  }
+  .container {
+    position: relative;
+    padding-top: 75px;
+    top: 50%;
+    z-index: 100;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  h1 {
+    font-size: 2em;
+    @media screen and (min-width: $screen-md-min) {
+      font-size: ($font-size-base * 3);
+    }
+  }
 }
-.hero .caption-content {
-  display:table-cell;
-  text-align: center;
-  vertical-align:bottom;
-  font-variant:small-caps;
-  padding:0 50px 0 50px;
+
+.page-section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  .col-xs-12 {
+    & > h1, > h2, > h3, > h4, > h5, > h6 {
+      margin-top: 0;
+    }
+  }
+  &.alternative-color {
+    background: $natural-white;
+  }
+  &.citizen-color {
+    background: $brand-primary;
+    i.fa {
+      color: $brand-secondary;
+    }
+    i.fa.fa-inverse {
+      color: $brand-primary;
+    }
+  }
+  &.citizen-dark {
+    background: $brand-secondary;
+  }
 }
-h2 {
-  font-family: 'Exo', sans-serif;
-  color: $white;
-  text-rendering: auto;
+
+#faq h4 a.collapsed:before {
+  @extend .glyphicon-plus;
 }
-.small-print {
-  font-size:12px;
-  font-variant:normal;
+
+#faq h4 a:before {
+  @extend .glyphicon-minus;
 }
-.sfc-logo {
-  width:150px;
+
+.img-responsive {
+  margin-bottom: 10px;
 }
-.logo-container {
-  width:250px;
-  text-align:center;
+
+#participate {
+  position: relative;
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 10;
+    background: transparent url("/images/polygon-black.png") no-repeat left top;
+    background-size: fill;
+  }
+  &:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 10;
+    background: transparent url("/images/polygon-alt-black.png") no-repeat right bottom;
+    background-size: fill;
+  }
 }
-.logo {
-  height:50px;
+
+// Footer / Logos
+
+#logos {
+  img {
+    max-width: 100%;
+  }
 }
-.navigation-button {
-  background: transparent;
+
+.col-seventh {
+  @extend .col-xs-6;
+  height: 100px;
+  float: left;
+  width: 50%;
+  @media screen and (min-width: $screen-md-min) {
+    height: 40px;
+    width: 14.28%;
+  }
+  img {
+    top: 50%;
+    position: relative;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+  }
 }
-.top-bar {
-  background: transparent !important;
-  font-family: "Questrial";
-}
-.top-bar-section ul li {
-  background: transparent !important;
+
+// Animation stuff
+
+@-webkit-keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+            transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -30px, 0);
+            transform: translate3d(0, -30px, 0);
+  }
 
 }
-.top-bar-section li:not(.has-form) a:not(.button) {
-  font-family: "Questrial", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-variant: small-caps;
-  color: #000;
-  background: transparent !important;
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+            transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -30px, 0);
+            transform: translate3d(0, -30px, 0);
+  }
+
 }
-.top-bar-section li:not(.has-form) a:not(.button):hover {
-  font-family: "Questrial", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-variant: small-caps;
-  color: #000;
-  text-decoration:underline;
+
+.bounce {
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-transform-origin: center bottom;
+      -ms-transform-origin: center bottom;
+          transform-origin: center bottom;
+}
+
+
+.animated {
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.scroll-down {
+  color: $brand-primary;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  top: auto;
+  margin-left: -8px;
+  z-index: 12;
 }
