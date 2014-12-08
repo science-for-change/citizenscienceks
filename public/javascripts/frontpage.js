@@ -1,11 +1,6 @@
 $(document).ready(
   function() {
 
-    // handle window resize for hero image
-    $(window).resize(function() {
-      $(".hero").height($(window).height());
-    });
-
     // load map
     L.mapbox.accessToken = 'pk.eyJ1IjoicmFuZG9tbSIsImEiOiJjVnloMEJ3In0.LW_7lV49M8U2kCNGf30qCQ';
     var map = L.mapbox.map('map', 'randomm.k2i2p2a1');
