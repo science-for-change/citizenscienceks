@@ -18,12 +18,19 @@ $(document).ready(
           clusterGroup.addLayer(layer);
           layer.setIcon(L.mapbox.marker.icon({'marker-symbol': 'circle-stroked', 'marker-color': '998445'}));
           console.log(layer)
-          layer.bindPopup(" <h3>" + layer.feature.properties.title + "</h3>\
-                            <ul>\
-                              <li>ghost wipe data</li>\
-                              <li>diffusion tube data</li>\
-                              <li>smart citizen kit data</li>\
-                            </ul>");
+          var popup_html = " <h3>" + layer.feature.properties.title + "</h3>\
+                            <ul>"
+          if (layer.feature.properties.has_ghost_wipes) {
+            popup_html  += "<li><a href='#'>ghost wipe data</a></li>"
+          }
+          if (layer.feature.properties.has_diffusion_tubes) {
+            popup_html  += "<li><a href='#'>diffusion tubes</a></li>"
+          }
+          if (layer.feature.properties.has_sck_devices) {
+            popup_html  += "<li><a href='#'>smart citizen kit</a></li>"
+          }
+          popup_html    += "</ul>"
+          layer.bindPopup(popup_html);
         });
         map.addLayer(clusterGroup);
       });
