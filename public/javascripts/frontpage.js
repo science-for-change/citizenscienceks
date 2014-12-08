@@ -16,7 +16,14 @@ $(document).ready(
         var clusterGroup = new L.MarkerClusterGroup();
         e.target.eachLayer(function(layer) {
           clusterGroup.addLayer(layer);
+          layer.setIcon(L.mapbox.marker.icon({'marker-symbol': 'circle-stroked', 'marker-color': '998445'}));
           console.log(layer)
+          layer.bindPopup(" <h3>" + layer.feature.properties.title + "</h3>\
+                            <ul>\
+                              <li>ghost wipe data</li>\
+                              <li>diffusion tube data</li>\
+                              <li>smart citizen kit data</li>\
+                            </ul>");
         });
         map.addLayer(clusterGroup);
       });
