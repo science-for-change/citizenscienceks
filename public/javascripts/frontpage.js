@@ -16,6 +16,7 @@ $(document).ready(
         var clusterGroup = new L.MarkerClusterGroup();
         e.target.eachLayer(function(layer) {
           clusterGroup.addLayer(layer);
+          console.log(layer)
         });
         map.addLayer(clusterGroup);
       });
