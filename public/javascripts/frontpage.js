@@ -19,8 +19,6 @@ $(document).ready(
         });
         map.addLayer(clusterGroup);
       });
-      //.addTo(map);
-
 
     // Disable tap handler, if present.
     if (map.tap) map.tap.disable();
