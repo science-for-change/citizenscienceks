@@ -1,4 +1,4 @@
-Citizenscienceks::App.controllers :blog_posts do
+Citizenscienceks::App.controllers :news do
   layout :blog
 
   get :index do
