@@ -24,6 +24,16 @@ module Citizenscienceks
       Site.all.to_json
     end
 
+    get :site_diffusion_tubes, map: '/sites/:site_id/diffusion_tubes.json' do
+      diffusion_tubes = Site.find(params[:site_id]).diffusion_tubes
+      diffusion_tubes.to_json
+    end
+
+    get :site_ghost_wipes, map: '/sites/:site_id/ghost_wipes.json' do
+      ghost_wipes = Site.find(params[:site_id]).ghost_wipes
+      ghost_wipes.to_json
+    end
+
     ##
     # Caching support.
     #
