@@ -1,4 +1,3 @@
-h1 = "Citsci blog"
+- @blog_posts.each_with_index do | blog_post, index |
+  == partial 'blog_posts/blog_post', object: blog_post, locals: { index: index }
 
-- @blog_posts.each do | blog_post |
-  == partial 'blog_posts/blog_post', object: blog_post

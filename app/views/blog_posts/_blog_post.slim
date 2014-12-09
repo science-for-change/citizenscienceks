@@ -1,4 +1,18 @@
-.post
-  .title= link_to blog_post.title, url_for(:blog_posts, :show, :id => blog_post)
-  .date= time_ago_in_words(blog_post.created_at || Time.now) + ' ago'
-  .body= simple_format(blog_post.body)
+- if index.even?
+  .page-section.alternative-color
+    .container
+      .row
+        .col-xs-12.col-md-12
+          h2 = blog_post.title
+          p = simple_format(blog_post.body)
+          p.time-ago-in-words = "Posted " + time_ago_in_words(blog_post.created_at || Time.now) + " ago"
+          a.read-more = link_to "Read more >>", url_for(:blog_posts, :show, id: blog_post)
+- else
+  .page-section
+    .container
+      .row
+        .col-xs-12.col-md-12
+          h2 = blog_post.title
+          p = simple_format(blog_post.body)
+          p.time-ago-in-words = "Posted " + time_ago_in_words(blog_post.created_at || Time.now) + " ago"
+          a.read-more = link_to "Read more >>", url_for(:blog_posts, :show, id: blog_post)

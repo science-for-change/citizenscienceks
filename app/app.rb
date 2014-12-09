@@ -4,7 +4,6 @@ module Citizenscienceks
     register Padrino::Mailer
     register Padrino::Helpers
     register CompassInitializer
-
     enable :sessions
 
     use Rack::Auth::Basic, "Restricted Area" do |username, password|

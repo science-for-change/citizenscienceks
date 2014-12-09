@@ -1,0 +1,72 @@
+doctype 5
+html.no-js lang='en'
+  head
+    meta name='viewport' content='width=device-width,initial-scale=1'
+    meta charset='utf-8'
+    title My application
+    = stylesheet_link_tag :application
+    = stylesheet_link_tag 'https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css'
+    = stylesheet_link_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css'
+    = stylesheet_link_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css'
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
+
+    = javascript_include_tag 'vendor/modernizr'
+
+  body
+
+    nav.navbar.navbar-default.navbar-fixed-top role="navigation"
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href="#"
+            img.sfc-logo src="/images/logo_sci.png" height="30"
+
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.navigation-button href="#" Project Info
+            li
+              a.navigation-button href="#" Stories
+            li
+              a.navigation-button href="#" Data
+            li
+              a.navigation-button href="#" Participate
+            li
+              a.navigation-button href="#" Connect
+            li
+              a.navigation-button href="#" About Us
+
+
+    = yield
+
+    footer#logos.page-section.citizen-dark
+      .container
+        .row
+          .col-xs-12
+            ul.list-unstyled.row
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/mzv.png"
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/tol.png"
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/internet_artizan.png"
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/lab.png"
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/pen.png"
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/ada.png"
+              li.logo-container.col-seventh.text-center
+                img.logo src="/images/unicef.png"
+
+
+
+    = javascript_include_tag 'vendor/jquery.min.js'
+    = javascript_include_tag '//api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'
+    = javascript_include_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'
+    = javascript_include_tag 'bootstrap.js'
+    = javascript_include_tag 'frontpage.js'
