@@ -18,18 +18,19 @@ $(document).ready(
           clusterGroup.addLayer(layer);
           layer.setIcon(L.mapbox.marker.icon({'marker-symbol': 'circle-stroked', 'marker-color': '998445'}));
           console.log(layer)
-          var popup_html = " <h3>" + layer.feature.properties.title + "</h3>\
-                            <ul>"
+          var popup_html = '<div class="tooltip-container">\
+                              <h3>' + layer.feature.properties.title + '</h3>\
+                              <div class="btn-group-vertical" role="group" aria-label="...">'
           if (layer.feature.properties.has_ghost_wipes) {
-            popup_html  += "<li><a href='#'>ghost wipe data</a></li>"
+            popup_html  += '    <button type="button" class="btn btn-default map-btn">Ghost Wipes</button>'
           }
           if (layer.feature.properties.has_diffusion_tubes) {
-            popup_html  += "<li><a href='#'>diffusion tubes</a></li>"
+            popup_html  += '    <button type="button" class="btn btn-default map-btn">Diffusion Tubes</button>'
           }
           if (layer.feature.properties.has_sck_devices) {
-            popup_html  += "<li><a href='#'>smart citizen kit</a></li>"
+            popup_html  += '    <button type="button" class="btn btn-default map-btn">Smart Citizen Kit Data</button>'
           }
-          popup_html    += "</ul>"
+          popup_html    += "</div></div>"
           layer.bindPopup(popup_html);
         });
         map.addLayer(clusterGroup);

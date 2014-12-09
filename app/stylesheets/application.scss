@@ -251,3 +251,23 @@ p {
   margin-left: -8px;
   z-index: 12;
 }
+
+.btn-group-vertical > .btn:first-child {
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+}
+
+.btn-group-vertical > .btn:last-child {
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+.map-btn {
+  font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.tooltip-container {
+  text-align: center;
+}
