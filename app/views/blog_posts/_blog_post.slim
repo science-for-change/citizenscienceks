@@ -6,7 +6,7 @@
           h2 = blog_post.title
           p = simple_format(blog_post.body)
           p.time-ago-in-words = "Posted " + time_ago_in_words(blog_post.created_at || Time.now) + " ago"
-          a.read-more = link_to "Read more >>", url_for(:news, :show, id: blog_post)
+          a.read-more = link_to "Read more >>", url_for(:stories, :show, id: blog_post)
 - else
   .page-section
     .container
@@ -15,4 +15,4 @@
           h2 = blog_post.title
           p = simple_format(blog_post.body)
           p.time-ago-in-words = "Posted " + time_ago_in_words(blog_post.created_at || Time.now) + " ago"
-          a.read-more = link_to "Read more >>", url_for(:news, :show, id: blog_post)
+          a.read-more = link_to "Read more >>", url_for(:stories, :show, id: blog_post)
