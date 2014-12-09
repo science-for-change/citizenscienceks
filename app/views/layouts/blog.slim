@@ -22,13 +22,15 @@ html.no-js lang='en'
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#"
+          a.navbar-brand href="/"
             img.sfc-logo src="/images/logo_sci.png" height="30"
 
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
               a.navigation-button href="#" Project Info
+            li
+              = link_to "News", url_for(:blog_posts, :index), class: "navigation-button"
             li
               a.navigation-button href="#" Stories
             li
