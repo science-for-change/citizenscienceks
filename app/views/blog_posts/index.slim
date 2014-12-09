@@ -1,3 +1,4 @@
-h1 "Citsci blog"
+h1 = "Citsci blog"
 
-= partial 'blog_posts/post', :collection => @blog_posts
+- @blog_posts.each do | blog_post |
+  == partial 'blog_posts/blog_post', object: blog_post

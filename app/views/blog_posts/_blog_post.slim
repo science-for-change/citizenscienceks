@@ -1,4 +1,4 @@
 .post
-  .title= link_to post.title, url_for(:blog_posts, :show, :id => blog_post)
+  .title= link_to blog_post.title, url_for(:blog_posts, :show, :id => blog_post)
   .date= time_ago_in_words(blog_post.created_at || Time.now) + ' ago'
   .body= simple_format(blog_post.body)
