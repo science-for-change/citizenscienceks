@@ -33,6 +33,7 @@ module Citizenscienceks
     end
 
     access_control.roles_for :admin do |role|
+      role.project_module :blog_posts, '/blog_posts'
       role.project_module :ghost_wipes, '/ghost_wipes'
       role.project_module :diffusion_tubes, '/diffusion_tubes'
       role.project_module :sites, '/sites'

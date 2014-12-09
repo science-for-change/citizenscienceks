@@ -27,6 +27,10 @@ class Account < ActiveRecord::Base
     ::BCrypt::Password.new(crypted_password) == password
   end
 
+  def fullname
+    name + " " + surname
+  end
+
   private
 
   def encrypt_password

@@ -1,0 +1,6 @@
+h2 = @blog_post.title
+  .post
+    .title= @blog_post.title
+    .date= time_ago_in_words(@blog_post.created_at || Time.now) + ' ago'
+    .body= simple_format(@blog_post.body)
+a = link_to 'View all posts', url_for(:blog_posts, :index)
