@@ -12,7 +12,6 @@ Citizenscienceks::Admin.controllers :blog_posts do
   end
 
   post :create do
-    binding.remote_pry
     @blog_post = BlogPost.new(params[:blog_post])
     @blog_post.account = current_account
     if @blog_post.save
