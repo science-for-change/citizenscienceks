@@ -7,6 +7,7 @@ source 'https://rubygems.org'
 gem 'rake'
 
 # Component requirements
+gem 'carrierwave'
 gem 'compass'
 gem 'bcrypt'
 gem 'slim'
