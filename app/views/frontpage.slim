@@ -37,16 +37,16 @@ html.no-js lang='en'
         .row
           .col-xs-12.col-md-4
             img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
-            p
-              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+            p = @blogs[0].excerpt
+            a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[0])
           .col-xs-12.col-md-4
             img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
-            p
-              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+            p = @blogs[1].excerpt
+            a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[1])
           .col-xs-12.col-md-4
             img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
-            p
-              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+            p = @blogs[2].excerpt
+            a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[2])
 
     .page-section
       .container
@@ -90,7 +90,7 @@ html.no-js lang='en'
         .row
           .col-xs-12.col-md-8.col-md-push-2.text-center
             h1 Connect
-            p Want to connect with us? 
+            p Want to connect with us?
             p Have questions or simply want to get updated with our work?
             p Here is how you can connect with us:
             ul.list-inline.breathe

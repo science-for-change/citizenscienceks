@@ -4,6 +4,6 @@ class BlogPost < ActiveRecord::Base
   validates_presence_of :body
 
   def excerpt
-    body.gsub(/<\/?[^>]*>/, "").gsub(/\n|\r/, "")[0..200] + "..."
+    body.gsub(/<\/?[^>]*>/, "").gsub(/\n|\r/, "")[0..300] + "..."
   end
 end
