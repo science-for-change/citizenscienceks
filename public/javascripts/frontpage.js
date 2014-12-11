@@ -581,10 +581,7 @@ function draw_ghost_modal(response, modal) {
       }]
     });
 
-
-
   });
-
 
 }
 
