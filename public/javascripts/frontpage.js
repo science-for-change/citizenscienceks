@@ -47,7 +47,6 @@ $(document).ready(function() {
       url: datapath,
     }).done(function(response) {
 
-      console.log(response)
       // diffusion tubes
       var nav_html = '<div class="btn-group" role="group" aria-label="...">\
                         <button id="µg_s_total" type="button" class="btn btn-default chart-btn">µg S Total</button>\
@@ -61,11 +60,8 @@ $(document).ready(function() {
       modal.find('.modal-nav-container').html(nav_html)
       $('#µg_s_total').on('click', function() {
 
-        var names = $.map(response, function(item) { return item.date_installed + " - " + item.date_removed });
+        var names = $.map(response, function(item) { return human_date(item.date_installed) + " - " + human_date(item.date_removed) });
         var data = $.map(response, function(item) { return item.µg_s_total });
-
-        console.log(names)
-        console.log(data)
 
         $('.modal-chart-container').highcharts({
           chart: {
@@ -92,6 +88,194 @@ $(document).ready(function() {
           }]
         });
       });
+
+      $('#µg_s_blank').on('click', function() {
+
+        var names = $.map(response, function(item) { return human_date(item.date_installed) + " - " + human_date(item.date_removed) });
+        var data = $.map(response, function(item) { return item.µg_s_blank });
+
+        $('.modal-chart-container').highcharts({
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: 'Micrograms of Sulphur, blank'
+          },
+          xAxis: {
+            categories: names
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: 'Micrograms'
+            }
+          },
+          legend: {
+            enabled: false
+          },
+          series: [{
+            name: "µg S blank",
+            data: data
+          }]
+        });
+      });
+
+      $('#so2_µg_m3').on('click', function() {
+
+        var names = $.map(response, function(item) { return human_date(item.date_installed) + " - " + human_date(item.date_removed) });
+        var data = $.map(response, function(item) { return item.so2_µg_m3 });
+
+        $('.modal-chart-container').highcharts({
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: 'SO2 µg m3'
+          },
+          xAxis: {
+            categories: names
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: 'SO2 µg m3'
+            }
+          },
+          legend: {
+            enabled: false
+          },
+          series: [{
+            name: "SO2 µg m3",
+            data: data
+          }]
+        });
+      });
+      $('#so2_µg_ppb').on('click', function() {
+
+        var names = $.map(response, function(item) { return human_date(item.date_installed) + " - " + human_date(item.date_removed) });
+        var data = $.map(response, function(item) { return item.so2_µg_ppb });
+
+        $('.modal-chart-container').highcharts({
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: 'SO2 µg ppb'
+          },
+          xAxis: {
+            categories: names
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: 'SO2 µg ppb'
+            }
+          },
+          legend: {
+            enabled: false
+          },
+          series: [{
+            name: "SO2 µg ppb ",
+            data: data
+          }]
+        });
+      });
+      $('#mg_m3').on('click', function() {
+
+        var names = $.map(response, function(item) { return human_date(item.date_installed) + " - " + human_date(item.date_removed) });
+        var data = $.map(response, function(item) { return item.mg_m3 });
+
+        $('.modal-chart-container').highcharts({
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: 'mg m3'
+          },
+          xAxis: {
+            categories: names
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: 'mg m3'
+            }
+          },
+          legend: {
+            enabled: false
+          },
+          series: [{
+            name: "mg m3",
+            data: data
+          }]
+        });
+      });
+      $('#ppb').on('click', function() {
+
+        var names = $.map(response, function(item) { return human_date(item.date_installed) + " - " + human_date(item.date_removed) });
+        var data = $.map(response, function(item) { return item.ppb });
+
+        $('.modal-chart-container').highcharts({
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: 'ppb'
+          },
+          xAxis: {
+            categories: names
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: 'ppb'
+            }
+          },
+          legend: {
+            enabled: false
+          },
+          series: [{
+            name: "ppb",
+            data: data
+          }]
+        });
+      });
+      $('#no2_µg').on('click', function() {
+
+        var names = $.map(response, function(item) { return human_date(item.date_installed) + " - " + human_date(item.date_removed) });
+        var data = $.map(response, function(item) { return item.no2_µg });
+
+        $('.modal-chart-container').highcharts({
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: 'no2 µg'
+          },
+          xAxis: {
+            categories: names
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: 'no2 µg'
+            }
+          },
+          legend: {
+            enabled: false
+          },
+          series: [{
+            name: "no2 µg",
+            data: data
+          }]
+        });
+      });
     });
   });
 });
+
+function human_date(date_string) {
+  var date_arr = date_string.split('-');
+  var date = new Date(date_arr[0], date_arr[1], date_arr[2]);
+  return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+}
