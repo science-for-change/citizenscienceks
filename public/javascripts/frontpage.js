@@ -61,7 +61,7 @@ $(document).ready(function() {
       modal.find('.modal-nav-container').html(nav_html)
       $('#µg_s_total').on('click', function() {
 
-        var names = $.map(response, function(item) { return item.so2_label });
+        var names = $.map(response, function(item) { return item.date_installed + " - " + item.date_removed });
         var data = $.map(response, function(item) { return item.µg_s_total });
 
         console.log(names)
