@@ -26,11 +26,13 @@ module Citizenscienceks
 
     get :site_diffusion_tubes, map: '/sites/:site_id/diffusion_tubes.json' do
       diffusion_tubes = Site.find(params[:site_id]).diffusion_tubes
+      content_type :json
       diffusion_tubes.to_json
     end
 
     get :site_ghost_wipes, map: '/sites/:site_id/ghost_wipes.json' do
       ghost_wipes = Site.find(params[:site_id]).ghost_wipes
+      content_type :json
       ghost_wipes.to_json
     end
 

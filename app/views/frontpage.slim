@@ -3,13 +3,12 @@ html.no-js lang='en'
   head
     meta name='viewport' content='width=device-width,initial-scale=1'
     meta charset='utf-8'
-    title My application
+    title Science for Change Kosovo
     = stylesheet_link_tag :application
     = stylesheet_link_tag 'https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css'
     = stylesheet_link_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css'
     = stylesheet_link_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css'
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
-
     = javascript_include_tag 'vendor/modernizr'
 
   body
@@ -163,10 +162,17 @@ html.no-js lang='en'
               li.logo-container.col-seventh.text-center
                 img.logo src="/images/unicef.png"
 
+    #modal.modal.fade.bs-example-modal-lg tabindex="-1" role="dialog" aria-labelledby="Science for Change data visualisation" aria-hidden="true"
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            h4 header
+          .modal-body
+            .modal-nav-container
+            .modal-chart-container
 
-
-    = javascript_include_tag 'vendor/jquery.min.js'
+    = partial 'shared/javascripts'
     = javascript_include_tag '//api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'
     = javascript_include_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'
-    = javascript_include_tag 'bootstrap.js'
+    = javascript_include_tag '//code.highcharts.com/highcharts.js'
     = javascript_include_tag 'frontpage.js'

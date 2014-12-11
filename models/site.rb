@@ -15,7 +15,8 @@ class Site < ActiveRecord::Base
         description: location,
         has_diffusion_tubes: has_diffusion_tubes,
         has_ghost_wipes: has_ghost_wipes,
-        has_sck_devices: has_sck_devices
+        has_sck_devices: has_sck_devices,
+        site_id: id
       }
     }
   end

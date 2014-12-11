@@ -252,6 +252,16 @@ p {
   z-index: 12;
 }
 
+.btn-group > .btn:first-child {
+  border-top-left-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
+}
+
+.btn-group > .btn:last-child {
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
 .btn-group-vertical > .btn:first-child {
   border-top-left-radius: 5px !important;
   border-top-right-radius: 5px !important;
@@ -260,6 +270,12 @@ p {
 .btn-group-vertical > .btn:last-child {
   border-bottom-left-radius: 5px !important;
   border-bottom-right-radius: 5px !important;
+}
+
+.chart-btn {
+  font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  font-weight: 300;
 }
 
 .map-btn {
