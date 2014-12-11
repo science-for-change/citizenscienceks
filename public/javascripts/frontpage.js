@@ -19,15 +19,15 @@ $(document).ready(function() {
         var popup_html = '<div class="tooltip-container">\
                             <h3>' + layer.feature.properties.title + '</h3>\
                             <div class="btn-group-vertical" role="group" aria-label="...">'
-        if (layer.feature.properties.has_ghost_wipes) {
-          popup_html  += '    <button type="button" class="btn btn-default map-btn" data-toggle="modal" data-datapath="/sites/'+layer.feature.properties.site_id+'/ghost_wipes.json" data-header="'+layer.feature.properties.title+', Ghost Wipe Data" data-target="#modal">Ghost Wipes</button>'
-        }
+//        if (layer.feature.properties.has_ghost_wipes) {
+//          popup_html  += '    <button type="button" class="btn btn-default map-btn" data-toggle="modal" data-datapath="/sites/'+layer.feature.properties.site_id+'/ghost_wipes.json" data-header="'+layer.feature.properties.title+', Ghost Wipe Data" data-target="#modal">Ghost Wipes</button>'
+//        }
         if (layer.feature.properties.has_diffusion_tubes) {
           popup_html  += '    <button type="button" class="btn btn-default map-btn" data-toggle="modal" data-datapath="/sites/'+layer.feature.properties.site_id+'/diffusion_tubes.json" data-siteid="'+layer.feature.properties.site_id+'" data-header="'+layer.feature.properties.title+', Diffusion Tube Data" data-target="#modal">Diffusion Tubes</button>'
         }
-        if (layer.feature.properties.has_sck_devices) {
-          popup_html  += '    <button type="button" class="btn btn-default map-btn" data-toggle="modal" data-header="'+layer.feature.properties.title+' Smart Citizen Data" data-target="#modal">Smart Citizen Kit Data</button>'
-        }
+//        if (layer.feature.properties.has_sck_devices) {
+//          popup_html  += '    <button type="button" class="btn btn-default map-btn" data-toggle="modal" data-header="'+layer.feature.properties.title+' Smart Citizen Data" data-target="#modal">Smart Citizen Kit Data</button>'
+//        }
         popup_html    += "</div></div>"
         layer.bindPopup(popup_html);
       });
