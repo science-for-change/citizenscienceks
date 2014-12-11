@@ -1,7 +1,7 @@
 .page-section
   .container
     .row
-      .col-xs-12.col-md-12
+      .col-xs-12.col-md-8.col-md-push-2.blog-post-content
         h2 = @blog_post.title
         == @blog_post.body
         p.time-ago-in-words = "Posted " + time_ago_in_words(@blog_post.created_at || Time.now) + " ago"
