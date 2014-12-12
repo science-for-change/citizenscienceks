@@ -44,7 +44,7 @@ class SckDevice < ActiveRecord::Base
     while date_from <= date_to do
       data << {
         timestamp: date_from, 
-        average_no2: average_co({
+        average_co: average_co({
           date_from: date_from,
           date_to: date_from,
           ppm: ppm
