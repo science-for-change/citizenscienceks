@@ -26,7 +26,7 @@ module Citizenscienceks
 
     get :smart_citizen_kit_daily_no2, map: '/sites/:site_id/smart_citizen_kit_daily_no2.json' do
       content_type :json
-      Site.find(params[:site_id]).sck_devices.take.average_no2({ppm: true}).to_json
+      Site.find(params[:site_id]).sck_devices.take.daily_average_no2({date_from: Date.new(2014,10,1), date_to: Date.new(2014,10,15), ppm: true}).to_json
     end
 
     get 'sites.geojson' do

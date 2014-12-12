@@ -7,7 +7,12 @@ class SckDevice < ActiveRecord::Base
     date_from = args[:date_from] || nil
     date_to = args[:date_to] || nil
     ppm = args[:ppm] || nil
-    return nil if date_to.nil? || date_from.nil?
+    return [] if date_from.nil? || date_to.nil?
+
+#    unless date_from && date_to
+#      date_from = posts.order(:timestamp).first.timestamp
+#      date_to = posts.order(:timestamp).last.timestamp
+#    end
 
     data = []
     while date_from <= date_to do
