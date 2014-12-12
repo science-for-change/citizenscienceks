@@ -6,13 +6,17 @@ module Citizenscienceks
     register CompassInitializer
     enable :sessions
 
-    use Rack::Auth::Basic, "Restricted Area" do |username, password|
-      username == 'citsci' and password == 'kosov0'
-    end
+#    use Rack::Auth::Basic, "Restricted Area" do |username, password|
+#      username == 'citsci' and password == 'kosov0'
+#    end
 
     get "/" do
       @blogs = BlogPost.first(3)
       render "frontpage"
+    end
+
+    get "/apis" do
+      render "apis"
     end
 
     get 'smart_citizen_kits.geojson' do

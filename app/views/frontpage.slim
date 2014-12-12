@@ -1,142 +1,129 @@
-doctype 5
-html.no-js lang='en'
-  head
-    meta name='viewport' content='width=device-width,initial-scale=1'
-    meta charset='utf-8'
-    title Science for Change Kosovo
-    = stylesheet_link_tag :application
-    = stylesheet_link_tag 'https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css'
-    = stylesheet_link_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css'
-    = stylesheet_link_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css'
-    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
-    = javascript_include_tag 'vendor/modernizr'
-
-  body
-
-    = partial "shared/navigation"
+= partial "shared/html"
+= partial "shared/head"
+= partial "shared/navigation"
 
 
-    .jumbotron
-      .v-center-container
-        .container.text-center
-          .row
-            .col-xs-10.col-xs-push-1
-              h1  Air pollution in Kosovo causes <strong>835</strong> premature deaths, <strong>310</strong> new cases of chronic bronchitis, <strong>600</strong> hospital admissions and <strong>11,600</strong> emergency visits each year <span class="super-small"><br>(World Bank 2012)</span>
-      .glyphicon.glyphicon-chevron-down.scroll-down.bounce.animated.hinge.infinite
-    .page-section
-      .container
-        .row
-          .col-xs-12.col-md-6
-            h2 Citizen Science?
-            p Citizen science is not just citizens doing science. But, science is modified by citizens. And citizens are changed by the science. Our commitment is to combine social values with scientific practice, and put the community groups at the core of the project.
-          .col-xs-12.col-md-6
-            img class="img-responsive" src="/images/IMG_9915.JPG" alt=""/
+.jumbotron
+  .v-center-container
+    .container.text-center
+      .row
+        .col-xs-10.col-xs-push-1
+          h1  Air pollution in Kosovo causes <strong>835</strong> premature deaths, <strong>310</strong> new cases of chronic bronchitis, <strong>600</strong> hospital admissions and <strong>11,600</strong> emergency visits each year <span class="super-small"><br>(World Bank 2012)</span>
+  .glyphicon.glyphicon-chevron-down.scroll-down.bounce.animated.hinge.infinite
+.page-section
+  .container
+    .row
+      .col-xs-12.col-md-6
+        h2 Citizen Science?
+        p Citizen science is not just citizens doing science. But, science is modified by citizens. And citizens are changed by the science. Our commitment is to combine social values with scientific practice, and put the community groups at the core of the project.
+      .col-xs-12.col-md-6
+        img class="img-responsive" src="/images/IMG_9915.JPG" alt=""/
 
-    .page-section.alternative-color
-      .container
-        .row
-          .col-xs-12.col-md-4
-            img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
-            p = @blogs[0].excerpt
-            a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[0])
-          .col-xs-12.col-md-4
-            img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
-            p = @blogs[1].excerpt
-            a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[1])
-          .col-xs-12.col-md-4
-            img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
-            p = @blogs[2].excerpt
-            a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[2])
+.page-section.alternative-color
+  .container
+    .row
+      .col-xs-12.col-md-4
+        img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
+        p = @blogs[0].excerpt
+        a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[0])
+      .col-xs-12.col-md-4
+        img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
+        p = @blogs[1].excerpt
+        a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[1])
+      .col-xs-12.col-md-4
+        img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
+        p = @blogs[2].excerpt
+        a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[2])
 
-    a name="data"
-    .page-section
-      .container
-        .row
-          .col-xs-12.col-md-8
-            h2 Data Intro
-            p Project participants have collected data using air quality diffusion tubes, ghost wipes as well as using Smart Citizen Kits. The map below gives access to all this community collected data. You can also access the data via our public APIs and download data using the links here.
-          .col-xs-12.col-md-4
-            h2 Downloads & Public APIs
-            p
-              ul
-                li
-                  a href="/downloads"
-                    | Data downloads
-                li
-                  a href="/apis"
-                    | Public APIs
+a name="data"
+.page-section
+  .container
+    .row
+      .col-xs-12.col-md-8
+        h2 Data
+        p Project participants have collected data using air quality diffusion tubes, ghost wipes as well as using Smart Citizen Kits. The map below gives access to all this community collected data. You can also access the data via our public APIs and download data using the links here.
+      .col-xs-12.col-md-4
+        h2 Downloads & Public APIs
+        p
+          ul
+            li
+              a href="/#data"
+                | Data downloads
+            li
+              a href="/apis"
+                | Public APIs
 
-    #map
+#map
 
-    a name="participate"
-    #participate.page-section
-      .container
-        .row
-          .col-xs-12.col-md-8.col-md-push-2.text-center
-            h1
-              | Participate
-            p Welcome to citizen science community in Kosovo! Looks like you are interested to participate in Citizen Science movement in Kosovo and we would be happy to host you in our community. Our commitment is to combine social values with scientific practices, and out community groups at the core of the project. We are certainly looking for volunteers, young (and old!) scientists, activists, campaigners, technologists, educator, hackers, journalists… and everyone else who really care for air pollution and environment.
-            p Applying citizen science methods and techniques requires significant time, efforts, fieldwork and endless hours in front of computers. And we don’t expect you to do it alone; therefore we want to create a movement around citizen science, which can support local actions, researches, investigations and can run educational activities with children and youth.  In the end, citizen science is not only characterized with scientifically work and measurements – we also do have a great deal of fun
-            p Come and join us and let’s do great things together!
+a name="participate"
+#participate.page-section
+  .container
+    .row
+      .col-xs-12.col-md-8.col-md-push-2.text-center
+        h1
+          | Participate
+        p Welcome to citizen science community in Kosovo! Looks like you are interested to participate in Citizen Science movement in Kosovo and we would be happy to host you in our community. Our commitment is to combine social values with scientific practices, and out community groups at the core of the project. We are certainly looking for volunteers, young (and old!) scientists, activists, campaigners, technologists, educator, hackers, journalists… and everyone else who really care for air pollution and environment.
+        p Applying citizen science methods and techniques requires significant time, efforts, fieldwork and endless hours in front of computers. And we don’t expect you to do it alone; therefore we want to create a movement around citizen science, which can support local actions, researches, investigations and can run educational activities with children and youth.  In the end, citizen science is not only characterized with scientifically work and measurements – we also do have a great deal of fun
+        p Come and join us and let’s do great things together!
 
-    a name="connect"
-    .page-section.citizen-color
-      .container
-        .row
-          .col-xs-12.col-md-8.col-md-push-2.text-center
-            h1 Connect
-            p Want to connect with us?
-            p Have questions or simply want to get updated with our work?
-            p Here is how you can connect with us:
-            ul.list-inline.breathe
-              li
-                a href="http://www.facebook.com/citsciks"
-                  span.fa-stack.fa-lg
-                    i.fa.fa-circle.fa-stack-2x
-                    i.fa.fa-facebook.fa-stack-1x.fa-inverse
-              li
-                a href="#"
-                  span.fa-stack.fa-lg
-                    i.fa.fa-circle.fa-stack-2x
-                    i.fa.fa-youtube.fa-stack-1x.fa-inverse
-              li
-                a href="http://www.twitter.com/citsciks"
-                  span.fa-stack.fa-lg
-                    i.fa.fa-circle.fa-stack-2x
-                    i.fa.fa-twitter.fa-stack-1x.fa-inverse
+a name="connect"
+.page-section.citizen-color
+  .container
+    .row
+      .col-xs-12.col-md-8.col-md-push-2.text-center
+        h1 Connect
+        p Want to connect with us?
+        p Have questions or simply want to get updated with our work?
+        p Here is how you can connect with us:
+        ul.list-inline.breathe
+          li
+            a href="http://www.facebook.com/citsciks"
+              span.fa-stack.fa-lg
+                i.fa.fa-circle.fa-stack-2x
+                i.fa.fa-facebook.fa-stack-1x.fa-inverse
+          li
+            a href="#"
+              span.fa-stack.fa-lg
+                i.fa.fa-circle.fa-stack-2x
+                i.fa.fa-youtube.fa-stack-1x.fa-inverse
+          li
+            a href="http://www.twitter.com/citsciks"
+              span.fa-stack.fa-lg
+                i.fa.fa-circle.fa-stack-2x
+                i.fa.fa-twitter.fa-stack-1x.fa-inverse
 
 
-    footer#logos.page-section.citizen-dark
-      .container
-        .row
-          .col-xs-12
-            ul.list-unstyled.row
-              li.logo-container.col-seventh.text-center
-                img.logo src="/images/mzv.png"
-              li.logo-container.col-seventh.text-center
-                img.logo src="/images/tol.png"
-              li.logo-container.col-seventh.text-center
-                img.logo src="/images/internet_artizan.png"
-              li.logo-container.col-seventh.text-center
-                img.logo src="/images/lab.png"
-              li.logo-container.col-seventh.text-center
-                img.logo src="/images/pen.png"
-              li.logo-container.col-seventh.text-center
-                img.logo src="/images/ada.png"
-              li.logo-container.col-seventh.text-center
-                img.logo src="/images/unicef.png"
+footer#logos.page-section.citizen-dark
+  .container
+    .row
+      .col-xs-12
+        ul.list-unstyled.row
+          li.logo-container.col-seventh.text-center
+            img.logo src="/images/mzv.png"
+          li.logo-container.col-seventh.text-center
+            img.logo src="/images/tol.png"
+          li.logo-container.col-seventh.text-center
+            img.logo src="/images/internet_artizan.png"
+          li.logo-container.col-seventh.text-center
+            img.logo src="/images/lab.png"
+          li.logo-container.col-seventh.text-center
+            img.logo src="/images/pen.png"
+          li.logo-container.col-seventh.text-center
+            img.logo src="/images/ada.png"
+          li.logo-container.col-seventh.text-center
+            img.logo src="/images/unicef.png"
 
-    #modal.modal.fade.bs-example-modal-lg tabindex="-1" role="dialog" aria-labelledby="Science for Change data visualisation" aria-hidden="true"
-      .modal-dialog.modal-lg
-        .modal-content
-          .modal-header
-            h4 header
-          .modal-body
-            .modal-nav-container
-            .modal-chart-container
+#modal.modal.fade.bs-example-modal-lg tabindex="-1" role="dialog" aria-labelledby="Science for Change data visualisation" aria-hidden="true"
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        h4 header
+      .modal-body
+        .modal-nav-container
+        .modal-chart-container
 
-    = partial 'shared/javascripts'
-    = javascript_include_tag '//api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'
-    = javascript_include_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'
-    = javascript_include_tag '//code.highcharts.com/highcharts.js'
-    = javascript_include_tag 'frontpage.js'
+= partial 'shared/javascripts'
+= javascript_include_tag '//api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'
+= javascript_include_tag '//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'
+= javascript_include_tag '//code.highcharts.com/highcharts.js'
+= javascript_include_tag 'frontpage.js'
