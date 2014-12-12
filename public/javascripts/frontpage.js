@@ -26,7 +26,7 @@ $(document).ready(function() {
           popup_html  += '    <button type="button" class="btn btn-default map-btn" data-toggle="modal" data-datapath="/sites/'+layer.feature.properties.site_id+'/diffusion_tubes.json" data-siteid="'+layer.feature.properties.site_id+'" data-header="'+layer.feature.properties.title+', Diffusion Tube Data" data-target="#modal" data-datatype="diffusion">Diffusion Tubes</button>'
         }
         if (layer.feature.properties.has_sck_devices) {
-          popup_html  += '    <button type="button" class="btn btn-default map-btn" data-toggle="modal" data-datapath="/sites/'+layer.feature.properties.site_id+'/smart_citizen_kit_data.json" data-siteid="'+layer.feature.properties.site_id+'" data-header="'+layer.feature.properties.title+', Smart Citizen Kit Data" data-target="#modal" data-datatype="smart">Diffusion Tubes</button>'
+          popup_html  += '    <button type="button" class="btn btn-default map-btn" data-toggle="modal" data-datapath="/sites/'+layer.feature.properties.site_id+'/smart_citizen_kit_data.json" data-siteid="'+layer.feature.properties.site_id+'" data-header="'+layer.feature.properties.title+', Smart Citizen Kit Data" data-target="#modal" data-datatype="smart">Smart Citizen Kit</button>'
         }
         popup_html    += "</div></div>"
         layer.bindPopup(popup_html);
