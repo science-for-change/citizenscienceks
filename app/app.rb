@@ -24,6 +24,11 @@ module Citizenscienceks
       SckDevice.all.to_json
     end
 
+    get :smart_citizen_kit_daily_no2, map: '/sites/:site_id/smart_citizen_kit_daily_no2.json' do
+      content_type :json
+      Site.find(params[:site_id]).sck_devices.take.average_no2({ppm: true}).to_json
+    end
+
     get 'sites.geojson' do
       content_type :json
       Site.all.to_json
