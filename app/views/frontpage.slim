@@ -48,28 +48,23 @@ html.no-js lang='en'
             p = @blogs[2].excerpt
             a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[2])
 
+    a name="data"
     .page-section
       .container
         .row
           .col-xs-12.col-md-8
             h2 Data Intro
-            p
-              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-            p
-              | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            p Project participants have collected data using air quality diffusion tubes, ghost wipes as well as using Smart Citizen Kits. The map below gives access to all this community collected data. You can also access the data via our public APIs and download data using the links here.
           .col-xs-12.col-md-4
-            h2 Finding & Methods
+            h2 Downloads & Public APIs
             p
               ul
                 li
-                  a href="#"
-                    | How to add your Smart Citizen Kit?
+                  a href="/downloads"
+                    | Data downloads
                 li
-                  a href="#"
-                    | How to add your observations?
-                li
-                  a href="#"
-                    | Links to resources
+                  a href="/apis"
+                    | Public APIs
 
     #map
 
