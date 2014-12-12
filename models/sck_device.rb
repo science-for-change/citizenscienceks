@@ -3,6 +3,24 @@ class SckDevice < ActiveRecord::Base
   belongs_to :site
   has_many :posts
 
+  def daily_average_no2(**args)
+    date_from = args[:date_from] || nil
+    date_to = args[:date_to] || nil
+    ppm = args[:ppm] || nil
+    return nil if date_to.nil? || date_from.nil?
+
+    data = []
+    while date_from <= date_to do
+      data << [date_from, average_no2({
+        date_from: date_from,
+        date_to: date_from,
+        ppm: ppm
+      })]
+      date_from += 1
+    end
+    data
+  end
+
   def average_no2(**args)
     date_from = args[:date_from] || nil
     date_to = args[:date_to] || nil
