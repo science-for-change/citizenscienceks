@@ -23,15 +23,12 @@
   .container
     .row
       .col-xs-12.col-md-4
-        img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
         p = @blogs[0].excerpt
         a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[0])
       .col-xs-12.col-md-4
-        img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
         p = @blogs[1].excerpt
         a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[1])
       .col-xs-12.col-md-4
-        img.img-responsive src="http://placehold.it/400x300" alt="placehold"/
         p = @blogs[2].excerpt
         a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[2])
 
