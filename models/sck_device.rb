@@ -16,11 +16,14 @@ class SckDevice < ActiveRecord::Base
 
     data = []
     while date_from <= date_to do
-      data << [date_from, average_no2({
-        date_from: date_from,
-        date_to: date_from,
-        ppm: ppm
-      })]
+      data << {
+        timestamp: date_from, 
+        average_no2: average_no2({
+          date_from: date_from,
+          date_to: date_from,
+          ppm: ppm
+        })
+      }
       date_from += 1
     end
     data

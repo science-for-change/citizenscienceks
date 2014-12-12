@@ -25,9 +25,9 @@ $(document).ready(function() {
         if (layer.feature.properties.has_diffusion_tubes) {
           popup_html  += '    <button type="button" class="btn btn-default map-btn" data-toggle="modal" data-datapath="/sites/'+layer.feature.properties.site_id+'/diffusion_tubes.json" data-siteid="'+layer.feature.properties.site_id+'" data-header="'+layer.feature.properties.title+', Diffusion Tube Data" data-target="#modal" data-datatype="diffusion">Diffusion Tubes</button>'
         }
-//        if (layer.feature.properties.has_sck_devices) {
-//          popup_html  += '    <button type="button" class="btn btn-default map-btn" data-toggle="modal" data-header="'+layer.feature.properties.title+' Smart Citizen Data" data-target="#modal">Smart Citizen Kit Data</button>'
-//        }
+        if (layer.feature.properties.has_sck_devices) {
+          popup_html  += '    <button type="button" class="btn btn-default map-btn" data-toggle="modal" data-datapath="/sites/'+layer.feature.properties.site_id+'/smart_citizen_kit_data.json" data-siteid="'+layer.feature.properties.site_id+'" data-header="'+layer.feature.properties.title+', Smart Citizen Kit Data" data-target="#modal" data-datatype="smart">Diffusion Tubes</button>'
+        }
         popup_html    += "</div></div>"
         layer.bindPopup(popup_html);
       });
@@ -52,6 +52,8 @@ $(document).ready(function() {
         draw_diffusion_modal(response, modal);
       } else if (button.data('datatype') == "ghost") {
         draw_ghost_modal(response, modal);
+      } else if (button.data('datatype') == "smart") {
+        draw_smart_modal(response, modal);
       }
     });
   });
@@ -294,7 +296,6 @@ function draw_diffusion_modal(response, modal) {
 }
 
 function draw_ghost_modal(response, modal) {
-  console.log(response)
   var nav_html = '<div class="btn-group" role="group" aria-label="...">\
                     <button id="As" type="button" class="btn btn-default chart-btn">As</button>\
                     <button id="Cd" type="button" class="btn btn-default chart-btn">Cd</button>\
@@ -559,6 +560,49 @@ function draw_ghost_modal(response, modal) {
       },
       title: {
         text: 'Zn'
+      },
+      xAxis: {
+        categories: names
+      },
+      yAxis: {
+        min: 0,
+        title: {
+          text: ''
+        }
+      },
+      legend: {
+        enabled: false
+      },
+      series: [{
+        name: "µg S total",
+        data: data
+      }]
+    });
+
+  });
+
+}
+
+function draw_smart_modal(response, modal) {
+  var nav_html = '<div class="btn-group" role="group" aria-label="...">\
+                    <button id="NO2" type="button" class="btn btn-default chart-btn">NO2 data</button>\
+                    <button id="CO" type="button" class="btn btn-default chart-btn">CO data</button>\
+                  </div>';
+  modal.find('.modal-nav-container').html(nav_html)
+
+  $('#NO2').on('click', function() {
+
+    var names = $.map(response.no2_daily_averages, function(item) { return human_date(item.timestamp) });
+    var data = $.map(response.no2_daily_averages, function(item) { return parseFloat(item.average_no2) });
+
+    $data = response
+
+    $('.modal-chart-container').highcharts({
+      chart: {
+        type: 'column'
+      },
+      title: {
+        text: 'Cd'
       },
       xAxis: {
         categories: names
