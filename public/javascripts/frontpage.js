@@ -590,6 +590,40 @@ function draw_smart_modal(response, modal) {
                   </div>';
   modal.find('.modal-nav-container').html(nav_html)
 
+  $('#CO').on('click', function() {
+
+    var names = $.map(response.no2_daily_averages, function(item) { return human_date(item.timestamp) });
+    var data = $.map(response.no2_daily_averages, function(item) { return parseFloat(item.average_co2) });
+
+    $data = response
+
+    $('.modal-chart-container').highcharts({
+      chart: {
+        type: 'column'
+      },
+      title: {
+        text: 'CO ppm'
+      },
+      xAxis: {
+        categories: names
+      },
+      yAxis: {
+        min: 0,
+        title: {
+          text: 'CO ppm'
+        }
+      },
+      legend: {
+        enabled: false
+      },
+      series: [{
+        name: "CO ppm",
+        data: data
+      }]
+    });
+
+  });
+
   $('#NO2').on('click', function() {
 
     var names = $.map(response.no2_daily_averages, function(item) { return human_date(item.timestamp) });
@@ -602,7 +636,7 @@ function draw_smart_modal(response, modal) {
         type: 'column'
       },
       title: {
-        text: 'Cd'
+        text: 'NO2 ppm'
       },
       xAxis: {
         categories: names
@@ -610,14 +644,14 @@ function draw_smart_modal(response, modal) {
       yAxis: {
         min: 0,
         title: {
-          text: ''
+          text: 'NO2 ppm'
         }
       },
       legend: {
         enabled: false
       },
       series: [{
-        name: "µg S total",
+        name: "NO2 ppm",
         data: data
       }]
     });

@@ -29,6 +29,32 @@ class SckDevice < ActiveRecord::Base
     data
   end
 
+  def daily_average_co(**args)
+    date_from = args[:date_from] || nil
+    date_to = args[:date_to] || nil
+    ppm = args[:ppm] || nil
+    return [] if date_from.nil? || date_to.nil?
+
+#    unless date_from && date_to
+#      date_from = posts.order(:timestamp).first.timestamp
+#      date_to = posts.order(:timestamp).last.timestamp
+#    end
+
+    data = []
+    while date_from <= date_to do
+      data << {
+        timestamp: date_from, 
+        average_no2: average_co({
+          date_from: date_from,
+          date_to: date_from,
+          ppm: ppm
+        })
+      }
+      date_from += 1
+    end
+    data
+  end
+
   def average_no2(**args)
     date_from = args[:date_from] || nil
     date_to = args[:date_to] || nil
