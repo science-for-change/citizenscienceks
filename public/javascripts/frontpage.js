@@ -73,13 +73,10 @@ function human_date(date_string) {
 
 function draw_diffusion_modal(response, modal) {
   var nav_html = '<div class="btn-group" role="group" aria-label="...">\
-                    <button id="µg_s_total" type="button" class="btn btn-default chart-btn">µg S Total</button>\
-                    <button id="µg_s_blank" type="button" class="btn btn-default chart-btn">µg S Blank</button>\
                     <button id="so2_µg_m3" type="button" class="btn btn-default chart-btn">SO<sub>2</sub> µg m<sup>3</sup></button>\
                     <button id="so2_µg_ppb" type="button" class="btn btn-default chart-btn">SO<sub>2</sub> µg ppb</button>\
                     <button id="mg_m3" type="button" class="btn btn-default chart-btn">mg m<sup>3</sup></button>\
                     <button id="ppb" type="button" class="btn btn-default chart-btn">ppb</button>\
-                    <button id="no2_µg" type="button" class="btn btn-default chart-btn">NO<sub>2</sub> µg</button>\
                   </div>';
   modal.find('.modal-nav-container').html(nav_html)
   $('#µg_s_total').on('click', function() {
