@@ -181,7 +181,7 @@ function draw_diffusion_modal(response, modal) {
         type: 'column'
       },
       title: {
-        text: 'SO2 µg ppb'
+        text: 'SO2 ppb'
       },
       xAxis: {
         categories: names
@@ -189,14 +189,14 @@ function draw_diffusion_modal(response, modal) {
       yAxis: {
         min: 0,
         title: {
-          text: 'SO2 µg ppb'
+          text: 'SO2 ppb'
         }
       },
       legend: {
         enabled: false
       },
       series: [{
-        name: "SO2 µg ppb ",
+        name: "SO2 ppb ",
         data: data
       }]
     });
@@ -211,7 +211,7 @@ function draw_diffusion_modal(response, modal) {
         type: 'column'
       },
       title: {
-        text: 'mg m3'
+        text: 'no2 ug / m3'
       },
       xAxis: {
         categories: names
@@ -219,14 +219,14 @@ function draw_diffusion_modal(response, modal) {
       yAxis: {
         min: 0,
         title: {
-          text: 'mg m3'
+          text: 'no2 ug / m3'
         }
       },
       legend: {
         enabled: false
       },
       series: [{
-        name: "mg m3",
+        name: "no2 ug / m3",
         data: data
       }]
     });
@@ -241,7 +241,7 @@ function draw_diffusion_modal(response, modal) {
         type: 'column'
       },
       title: {
-        text: 'ppb'
+        text: 'no2 ppb'
       },
       xAxis: {
         categories: names
@@ -249,14 +249,14 @@ function draw_diffusion_modal(response, modal) {
       yAxis: {
         min: 0,
         title: {
-          text: 'ppb'
+          text: 'no2 ppb'
         }
       },
       legend: {
         enabled: false
       },
       series: [{
-        name: "ppb",
+        name: "no2 ppb",
         data: data
       }]
     });
