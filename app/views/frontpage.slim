@@ -23,12 +23,15 @@
   .container
     .row
       .col-xs-12.col-md-4
+        h3 = @blogs[0].title
         p = @blogs[0].excerpt
         a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[0])
       .col-xs-12.col-md-4
+        h3 = @blogs[1].title
         p = @blogs[1].excerpt
         a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[1])
       .col-xs-12.col-md-4
+        h3 = @blogs[2].title
         p = @blogs[2].excerpt
         a.read-more = link_to "Read more >>", url_for(:stories, :show, id: @blogs[2])
 
