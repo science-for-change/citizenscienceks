@@ -593,10 +593,8 @@ function draw_smart_modal(response, modal) {
 
   $('#CO').on('click', function() {
 
-    var names = $.map(response.no2_daily_averages, function(item) { return human_date(item.timestamp) });
-    var data = $.map(response.no2_daily_averages, function(item) { return parseFloat(item.average_co2) });
-
-    $data = data
+    var names = $.map(response.co_daily_averages, function(item) { return human_date(item.timestamp) });
+    var data = $.map(response.co_daily_averages, function(item) { return parseFloat(item.average_co) });
 
     $('.modal-chart-container').highcharts({
       title: {
