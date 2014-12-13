@@ -76,7 +76,6 @@ class SckDevice < ActiveRecord::Base
       result = posts.map(&:no2).sum / posts.size.to_f
     end
     $redis.set(redis_key, result)
-    $redis.expire(redis_key, 31104000)
     result
   end
 
@@ -101,7 +100,6 @@ class SckDevice < ActiveRecord::Base
       result = posts.map(&:co).sum / posts.size.to_f
     end
     $redis.set(redis_key, result)
-    $redis.expire(redis_key, 31104000)
     result
   end
 
