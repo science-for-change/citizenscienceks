@@ -16,14 +16,18 @@ class SckDevice < ActiveRecord::Base
 
     data = []
     while date_from <= date_to do
-      data << {
-        timestamp: date_from, 
-        average_no2: average_no2({
-          date_from: date_from,
-          date_to: date_from,
-          ppm: ppm
-        })
-      }
+      average = average_no2({
+        date_from: date_from,
+        date_to: date_from,
+        ppm: ppm
+      })
+
+      if average
+        data << {
+          timestamp: date_from,
+          average_no2: average.to_f.round(2)
+        }
+      end
       date_from += 1
     end
     data
@@ -42,14 +46,18 @@ class SckDevice < ActiveRecord::Base
 
     data = []
     while date_from <= date_to do
-      data << {
-        timestamp: date_from, 
-        average_co: average_co({
-          date_from: date_from,
-          date_to: date_from,
-          ppm: ppm
-        })
-      }
+      average = average_co({
+        date_from: date_from,
+        date_to: date_from,
+        ppm: ppm
+      })
+
+      if average
+        data << {
+          timestamp: date_from,
+          average_co: average.to_f.round(2)
+        }
+      end
       date_from += 1
     end
     data
@@ -65,17 +73,19 @@ class SckDevice < ActiveRecord::Base
       return cached_result
     end
 
-    posts = if date_from && date_to
-              self.posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).where("no2 > 0.01").select(:no2)
+    p = if date_from && date_to
+              posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).where("no2 > 0.01").select(:no2)
             else
-              self.posts.where("no2 > 0.01").select(:no2)
+              posts.where("no2 > 0.01").select(:no2)
             end
+
     if ppm
-      result = posts.map(&:no2_ppm).sum / posts.size.to_f
+      result = p.map(&:no2_ppm).sum / p.size.to_f
     else
-      result = posts.map(&:no2).sum / posts.size.to_f
+      result = p.map(&:no2).sum / p.size.to_f
     end
     $redis.set(redis_key, result)
+    return nil if p.empty?
     result
   end
 
@@ -89,17 +99,19 @@ class SckDevice < ActiveRecord::Base
       return cached_result
     end
 
-    posts = if date_from && date_to
-              self.posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).where("co > 0.01").select(:co)
+    p = if date_from && date_to
+              posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).where("co > 0.01").select(:co)
             else
-              self.posts.where("co > 0.01").select(:co)
+              posts.where("co > 0.01").select(:co)
             end
+
     if ppm
-      result = posts.map(&:co_ppm).sum / posts.size.to_f
+      result = p.map(&:co_ppm).sum / p.size.to_f
     else
-      result = posts.map(&:co).sum / posts.size.to_f
+      result = p.map(&:co).sum / p.size.to_f
     end
     $redis.set(redis_key, result)
+    return nil if p.empty?
     result
   end
 

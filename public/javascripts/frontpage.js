@@ -53,6 +53,7 @@ $(document).ready(function() {
       } else if (button.data('datatype') == "ghost") {
         draw_ghost_modal(response, modal);
       } else if (button.data('datatype') == "smart") {
+        console.log(response)
         draw_smart_modal(response, modal);
       }
     });
@@ -595,23 +596,24 @@ function draw_smart_modal(response, modal) {
     var names = $.map(response.no2_daily_averages, function(item) { return human_date(item.timestamp) });
     var data = $.map(response.no2_daily_averages, function(item) { return parseFloat(item.average_co2) });
 
-    $data = response
+    $data = data
 
     $('.modal-chart-container').highcharts({
-      chart: {
-        type: 'column'
-      },
       title: {
         text: 'CO ppm'
       },
       xAxis: {
-        categories: names
+        categories: names,
       },
       yAxis: {
-        min: 0,
         title: {
           text: 'CO ppm'
-        }
+        },
+        plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+        }]
       },
       legend: {
         enabled: false
@@ -629,23 +631,22 @@ function draw_smart_modal(response, modal) {
     var names = $.map(response.no2_daily_averages, function(item) { return human_date(item.timestamp) });
     var data = $.map(response.no2_daily_averages, function(item) { return parseFloat(item.average_no2) });
 
-    $data = response
-
     $('.modal-chart-container').highcharts({
-      chart: {
-        type: 'column'
-      },
       title: {
         text: 'NO2 ppm'
       },
       xAxis: {
-        categories: names
+        categories: names,
       },
       yAxis: {
-        min: 0,
         title: {
           text: 'NO2 ppm'
-        }
+        },
+        plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+        }]
       },
       legend: {
         enabled: false
