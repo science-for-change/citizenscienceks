@@ -59,32 +59,48 @@ class SckDevice < ActiveRecord::Base
     date_from = args[:date_from] || nil
     date_to = args[:date_to] || nil
     ppm = args[:ppm] || nil
+    redis_key = self.id.to_s+"no2"+date_from.to_s+date_to.to_s+ppm.to_s
+
+    if cached_result = $redis.get(redis_key)
+      return cached_result
+    end
+
     posts = if date_from && date_to
               self.posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).where("no2 > 0.01").select(:no2)
             else
               self.posts.where("no2 > 0.01").select(:no2)
             end
     if ppm
-      posts.map(&:no2_ppm).sum / posts.size.to_f
+      result = posts.map(&:no2_ppm).sum / posts.size.to_f
     else
-      posts.map(&:no2).sum / posts.size.to_f
+      result = posts.map(&:no2).sum / posts.size.to_f
     end
+    $redis.set(redis_key, result)
+    result
   end
 
   def average_co(**args)
     date_from = args[:date_from] || nil
     date_to = args[:date_to] || nil
     ppm = args[:ppm] || nil
+    redis_key = self.id.to_s+"co"+date_from.to_s+date_to.to_s+ppm.to_s
+
+    if cached_result = $redis.get(redis_key)
+      return cached_result
+    end
+
     posts = if date_from && date_to
               self.posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).where("co > 0.01").select(:co)
             else
               self.posts.where("co > 0.01").select(:co)
             end
     if ppm
-      posts.map(&:co_ppm).sum / posts.size.to_f
+      result = posts.map(&:co_ppm).sum / posts.size.to_f
     else
-      posts.map(&:co).sum / posts.size.to_f
+      result = posts.map(&:co).sum / posts.size.to_f
     end
+    $redis.set(redis_key, result)
+    result
   end
 
   def as_json(options)
