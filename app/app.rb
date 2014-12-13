@@ -32,8 +32,8 @@ module Citizenscienceks
     get :site_smart_citizen_kit_data, map: '/sites/:site_id/smart_citizen_kit_data.json' do
       content_type :json
       {
-        no2_daily_averages: Site.find(params[:site_id]).sck_devices.take.daily_average_no2({date_from: Date.new(2014,10,1), date_to: Date.new(2014,10,15), ppm: true}),
-        co_daily_averages: Site.find(params[:site_id]).sck_devices.take.daily_average_co({date_from: Date.new(2014,10,1), date_to: Date.new(2014,10,15), ppm: true})
+        no2_daily_averages: Site.find(params[:site_id]).sck_devices.take.daily_average_no2({date_from: Date.new(2014,10,1), date_to: Date.new(2014,10,16), ppm: true}),
+        co_daily_averages: Site.find(params[:site_id]).sck_devices.take.daily_average_co({date_from: Date.new(2014,10,1), date_to: Date.new(2014,10,16), ppm: true})
       }.to_json
     end
 
