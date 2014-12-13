@@ -6,17 +6,40 @@ module Citizenscienceks
     register CompassInitializer
     enable :sessions
 
-    use Rack::Auth::Basic, "Restricted Area" do |username, password|
-      username == 'citsci' and password == 'kosov0'
-    end
+#    use Rack::Auth::Basic, "Restricted Area" do |username, password|
+#      username == 'citsci' and password == 'kosov0'
+#    end
 
     get "/" do
+      @blogs = BlogPost.first(3)
       render "frontpage"
+    end
+
+    get "/apis" do
+      render "apis"
     end
 
     get 'smart_citizen_kits.geojson' do
       content_type :json
       SckDevice.all.to_json
+    end
+
+    get :site_smart_citizen_kit_daily_no2, map: '/sites/:site_id/smart_citizen_kit_daily_no2.json' do
+      content_type :json
+      Site.find(params[:site_id]).sck_devices.take.daily_average_no2({date_from: Date.new(2014,10,1), date_to: Date.new(2014,10,15), ppm: true}).to_json
+    end
+
+    get :site_smart_citizen_kit_data, map: '/sites/:site_id/smart_citizen_kit_data.json' do
+      content_type :json
+
+      device = Site.find(params[:site_id]).sck_devices.take
+
+      date_from = Date.parse(device.posts.first.timestamp.to_s)
+      date_to = Date.parse(device.posts.last.timestamp.to_s)
+      {
+        no2_daily_averages: device.daily_average_no2({date_from: date_from, date_to: date_to, ppm: true}),
+        co_daily_averages: device.daily_average_co({date_from: date_from, date_to: date_to, ppm: true})
+      }.to_json
     end
 
     get 'sites.geojson' do

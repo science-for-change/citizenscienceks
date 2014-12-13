@@ -7,12 +7,14 @@ source 'https://rubygems.org'
 gem 'rake'
 
 # Component requirements
+gem 'carrierwave'
 gem 'compass'
 gem 'bcrypt'
 gem 'slim'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'pg'
 gem 'httparty'
+gem 'redis'
 gem 'pry-remote'
 
 # Padrino Stable Gem

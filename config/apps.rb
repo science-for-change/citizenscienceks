@@ -36,3 +36,11 @@ end
 
 Padrino.mount("Citizenscienceks::Admin", :app_file => Padrino.root('admin/app.rb')).to("/admin")
 Padrino.mount('Citizenscienceks::App', :app_file => Padrino.root('app/app.rb')).to('/').host(/www.citizenscienceks\.[dev|org]|localhost/)
+
+# Redis
+if Padrino.env == :development
+  $redis = Redis.new
+else
+  uri = URI.parse(ENV["REDISCLOUD_URL"])
+  $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+end

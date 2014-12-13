@@ -3,36 +3,116 @@ class SckDevice < ActiveRecord::Base
   belongs_to :site
   has_many :posts
 
+  def daily_average_no2(**args)
+    date_from = args[:date_from] || nil
+    date_to = args[:date_to] || nil
+    ppm = args[:ppm] || nil
+    return [] if date_from.nil? || date_to.nil?
+
+#    unless date_from && date_to
+#      date_from = posts.order(:timestamp).first.timestamp
+#      date_to = posts.order(:timestamp).last.timestamp
+#    end
+
+    data = []
+    while date_from <= date_to do
+      average = average_no2({
+        date_from: date_from,
+        date_to: date_from,
+        ppm: ppm
+      })
+
+      if average
+        data << {
+          timestamp: date_from,
+          average_no2: average.to_f.round(2)
+        }
+      end
+      date_from += 1
+    end
+    data
+  end
+
+  def daily_average_co(**args)
+    date_from = args[:date_from] || nil
+    date_to = args[:date_to] || nil
+    ppm = args[:ppm] || nil
+    return [] if date_from.nil? || date_to.nil?
+
+#    unless date_from && date_to
+#      date_from = posts.order(:timestamp).first.timestamp
+#      date_to = posts.order(:timestamp).last.timestamp
+#    end
+
+    data = []
+    while date_from <= date_to do
+      average = average_co({
+        date_from: date_from,
+        date_to: date_from,
+        ppm: ppm
+      })
+
+      if average
+        data << {
+          timestamp: date_from,
+          average_co: average.to_f.round(2)
+        }
+      end
+      date_from += 1
+    end
+    data
+  end
+
   def average_no2(**args)
     date_from = args[:date_from] || nil
     date_to = args[:date_to] || nil
     ppm = args[:ppm] || nil
-    posts = if date_from && date_to
-              self.posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).where("no2 > 0.01").select(:no2)
-            else
-              self.posts.where("no2 > 0.01").select(:no2)
-            end
-    if ppm
-      posts.map(&:no2_ppm).sum / posts.size.to_f
-    else
-      posts.map(&:no2).sum / posts.size.to_f
+    redis_key = self.id.to_s+"no2"+date_from.to_s+date_to.to_s+ppm.to_s
+
+    if cached_result = $redis.get(redis_key)
+      return cached_result
     end
+
+    p = if date_from && date_to
+              posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).where("no2 > 0.01").select(:no2)
+            else
+              posts.where("no2 > 0.01").select(:no2)
+            end
+
+    if ppm
+      result = p.map(&:no2_ppm).sum / p.size.to_f
+    else
+      result = p.map(&:no2).sum / p.size.to_f
+    end
+    $redis.set(redis_key, result)
+    return nil if p.empty?
+    result
   end
 
   def average_co(**args)
     date_from = args[:date_from] || nil
     date_to = args[:date_to] || nil
     ppm = args[:ppm] || nil
-    posts = if date_from && date_to
-              self.posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).where("co > 0.01").select(:co)
-            else
-              self.posts.where("co > 0.01").select(:co)
-            end
-    if ppm
-      posts.map(&:co_ppm).sum / posts.size.to_f
-    else
-      posts.map(&:co).sum / posts.size.to_f
+    redis_key = self.id.to_s+"co"+date_from.to_s+date_to.to_s+ppm.to_s
+
+    if cached_result = $redis.get(redis_key)
+      return cached_result
     end
+
+    p = if date_from && date_to
+              posts.where(:timestamp => date_from.beginning_of_day...date_to.end_of_day).where("co > 0.01").select(:co)
+            else
+              posts.where("co > 0.01").select(:co)
+            end
+
+    if ppm
+      result = p.map(&:co_ppm).sum / p.size.to_f
+    else
+      result = p.map(&:co).sum / p.size.to_f
+    end
+    $redis.set(redis_key, result)
+    return nil if p.empty?
+    result
   end
 
   def as_json(options)
