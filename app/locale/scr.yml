@@ -5,3 +5,27 @@ scr:
     data: Data
     participate: Participate
     connect: Connect
+  frontpage:
+    slogan: 'Air pollution in Kosovo causes <strong>835</strong> premature deaths, <strong>310</strong> new cases of chronic bronchitis, <strong>600</strong> hospital admissions and <strong>11,600</strong> emergency visits each year <span class="super-small"><br>(World Bank 2012)</span>'
+    project_info:
+      heading: Citizen Science?
+      paragraph: 'Citizen science is not just citizens doing science. But, science is modified by citizens. And citizens are changed by the science. Our commitment is to combine social values with scientific practice, and put the community groups at the core of the project.'
+    blogs:
+      read_more: Read more >>
+    data:
+      heading: Data
+      paragraph: 'Project participants have collected data using air quality diffusion tubes, ghost wipes as well as using Smart Citizen Kits. The map below gives access to all this community collected data. You can also access the data via our public APIs and download data using the links here.'
+      downloads:
+        header: Downloads & Public APIs
+        downloads_link: Data downloads [COMING SOON]
+        apis_link: Public APIs [COMING SOON]
+    participate:
+      header: Participate
+      paragraph_1: Welcome to citizen science community in Kosovo! Looks like you are interested to participate in Citizen Science movement in Kosovo and we would be happy to host you in our community. Our commitment is to combine social values with scientific practices, and out community groups at the core of the project. We are certainly looking for volunteers, young (and old!) scientists, activists, campaigners, technologists, educator, hackers, journalists… and everyone else who really care for air pollution and environment.
+      paragraph_2: Applying citizen science methods and techniques requires significant time, efforts, fieldwork and endless hours in front of computers. And we don’t expect you to do it alone; therefore we want to create a movement around citizen science, which can support local actions, researches, investigations and can run educational activities with children and youth.  In the end, citizen science is not only characterized with scientifically work and measurements – we also do have a great deal of fun
+      paragraph_3: Come and join us and let’s do great things together!
+    connect:
+      header: Connect
+      paragraph_1: Want to connect with us?
+      paragraph_2: Have questions or simply want to get updated with our work?
+      paragraph_3: Get in touch with us via social media below!
