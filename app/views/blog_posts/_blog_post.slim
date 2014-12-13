@@ -1,5 +1,5 @@
 - if index.even?
-  .page-section.alternative-color
+  .page-section.blogs.alternative-color
     .container
       .row
         .col-xs-12.col-md-12
@@ -8,7 +8,7 @@
           p.time-ago-in-words = "Posted " + time_ago_in_words(blog_post.created_at || Time.now) + " ago"
           a.read-more = link_to "Read more >>", url_for(:stories, :show, id: blog_post)
 - else
-  .page-section
+  .page-section.blogs
     .container
       .row
         .col-xs-12.col-md-12
