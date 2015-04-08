@@ -21,7 +21,7 @@ module Citizenscienceks
     end
 
     get "/" do
-      @blogs = BlogPost.first(3)
+      @blogs = BlogPost.last(3)
       render "frontpage"
     end
 
