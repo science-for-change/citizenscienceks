@@ -6,7 +6,8 @@ en:
     participate: Participate
     connect: Connect
   frontpage:
-    slogan: 'Air pollution in Kosovo causes <strong>835</strong> premature deaths, <strong>310</strong> new cases of chronic bronchitis, <strong>600</strong> hospital admissions and <strong>11,600</strong> emergency visits each year <span class="super-small"><br>(World Bank 2012)</span>'
+    slogan: 'COMING SOON: The training workshop “Get data, take action and drive change” is taking place between 20-22 November 2015. <a href="https://docs.google.com/forms/d/13GiWZUyu_5ftdbZWAZTdKEf5X-JVeIgm7Oy9yw6UAL0/viewform" target="_blank">Participate now!</a>'
+    slogan_original: 'Air pollution in Kosovo causes <strong>835</strong> premature deaths, <strong>310</strong> new cases of chronic bronchitis, <strong>600</strong> hospital admissions and <strong>11,600</strong> emergency visits each year <span class="super-small"><br>(World Bank 2012)</span>'
     project_info:
       heading: Citizen Science?
       paragraph: 'Citizen science is not just citizens doing science. But, science is modified by citizens. And citizens are changed by the science. Our commitment is to combine social values with scientific practice, and put the community groups at the core of the project.'
@@ -29,3 +30,13 @@ en:
       paragraph_1: Want to connect with us?
       paragraph_2: Have questions or simply want to get updated with our work?
       paragraph_3: Get in touch with us via social media below!
+  apipage:
+    heading: Open Data APIs
+    main_para_1: What API? API stands for application programming interface. It is a way to retrieve and reuse data programmatically.
+    main_para_2: All data gathered and processed by Science for Change is open and public, and one way we are open is that we offer APIs to data gathered by the project members. You can use the data APIs described on this page freely. We currently offer data APIs to diffusion tube, ghost wipe and Smart Citizen Kit data gathered during autumn 2014.
+    main_para_3: Please note that all API endpoints described here are still subject to change, as this service is currently evolving at a fast pace. In case of any problems, please do not hesitate to get in touch with us.
+    sites:
+      heading: All data collection sites
+      para_1: Via this method you can retrieve all data collection sites, and relevant related data held within the system.
+    diffusion_tube:
+      heading: Diffusion Tube API Endpoint
