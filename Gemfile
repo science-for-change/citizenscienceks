@@ -1,3 +1,4 @@
+ruby '2.2.0'
 source 'https://rubygems.org'
 
 # Optional JSON codec (faster performance)
@@ -16,6 +17,7 @@ gem 'pg'
 gem 'httparty'
 gem 'redis'
 gem 'pry-remote'
+gem 'unicorn'
 
 # Padrino Stable Gem
 gem 'padrino', '0.12.3'
