@@ -29,6 +29,10 @@ module Citizenscienceks
       render "apis"
     end
 
+    get "/apply" do
+      redirect "https://docs.google.com/forms/d/13GiWZUyu_5ftdbZWAZTdKEf5X-JVeIgm7Oy9yw6UAL0/viewform"
+    end
+
     get 'smart_citizen_kits.geojson' do
       content_type :json
       SckDevice.all.to_json
