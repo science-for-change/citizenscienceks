@@ -10,15 +10,18 @@
         .col-xs-10.col-xs-push-1
           h1 == I18n.t("frontpage.slogan")
   .glyphicon.glyphicon-chevron-down.scroll-down.bounce.animated.hinge.infinite
-a name="project_info"
-.page-section
+
+a name="participate"
+#participate.page-section
   .container
     .row
-      .col-xs-12.col-md-6
-        h2 == I18n.t("frontpage.project_info.heading")
-        p == I18n.t("frontpage.project_info.paragraph")
-      .col-xs-12.col-md-6
-        img class="img-responsive" src="/images/IMG_9915.JPG" alt=""/
+      .col-xs-12.col-md-8.col-md-push-2.text-center
+        h1 == I18n.t("frontpage.participate.header")
+        p == I18n.t("frontpage.participate.paragraph_1")
+        p == I18n.t("frontpage.participate.paragraph_2")
+        p == I18n.t("frontpage.participate.paragraph_3")
+        iframe src="https://docs.google.com/forms/d/13GiWZUyu_5ftdbZWAZTdKEf5X-JVeIgm7Oy9yw6UAL0/viewform?embedded=true" width="760" height="3200" frameborder="0" marginheight="0" marginwidth="0"
+          | Loading
 
 .page-section.alternative-color
   .container
@@ -54,17 +57,15 @@ a name="data"
 
 #map
 
-a name="participate"
-#participate.page-section
+a name="project_info"
+.page-section
   .container
     .row
-      .col-xs-12.col-md-8.col-md-push-2.text-center
-        h1 == I18n.t("frontpage.participate.header")
-        p == I18n.t("frontpage.participate.paragraph_1")
-        p == I18n.t("frontpage.participate.paragraph_2")
-        p == I18n.t("frontpage.participate.paragraph_3")
-        iframe src="https://docs.google.com/forms/d/13GiWZUyu_5ftdbZWAZTdKEf5X-JVeIgm7Oy9yw6UAL0/viewform?embedded=true" width="760" height="3200" frameborder="0" marginheight="0" marginwidth="0"
-          | Loading
+      .col-xs-12.col-md-6
+        h2 == I18n.t("frontpage.project_info.heading")
+        p == I18n.t("frontpage.project_info.paragraph")
+      .col-xs-12.col-md-6
+        img class="img-responsive" src="/images/IMG_9915.JPG" alt=""/
 
 a name="connect"
 .page-section.citizen-color
