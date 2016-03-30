@@ -2,7 +2,7 @@ class CreateUploads < ActiveRecord::Migration
   def self.up
     create_table :uploads do |t|
       t.text :file
-      t.datetime :created_at
+      t.integer :upload_type
       t.timestamps
     end
   end
