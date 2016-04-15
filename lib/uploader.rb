@@ -1,9 +1,5 @@
 class Uploader < CarrierWave::Uploader::Base
 
-  ##
-  # Storage type
-  #
-  #storage :file
   storage :fog
   configure do |config|
     config.fog_credentials = {
@@ -17,15 +13,10 @@ class Uploader < CarrierWave::Uploader::Base
     config.fog_directory  = 'citizenscienceks'
   end
 
-  ##
-  # Directory where uploaded temp files will be stored (default is [root]/tmp)
-  #
   def cache_dir
     Padrino.root("tmp")
   end
 
-  # White list of extensions which are allowed to be uploaded:
-  #
   def extension_white_list
     %w(txt kmz)
   end
