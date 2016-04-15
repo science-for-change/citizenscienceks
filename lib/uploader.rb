@@ -1,5 +1,7 @@
 class Uploader < CarrierWave::Uploader::Base
 
+  after :store, :process
+
   storage :fog
   configure do |config|
     config.fog_credentials = {
@@ -11,6 +13,10 @@ class Uploader < CarrierWave::Uploader::Base
     config.fog_public     = true
     config.fog_attributes = {'Cache-Control' => 'max-age=315576000'}
     config.fog_directory  = 'citizenscienceks'
+  end
+
+  def process(file)
+    #binding.remote_pry
   end
 
   def cache_dir
