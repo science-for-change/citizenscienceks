@@ -1,8 +1,6 @@
 require 'carrierwave/orm/activerecord'
 class Upload < ActiveRecord::Base
 
-  after_save :process_file
-
   mount_uploader :file, Uploader
 
   FILE_UPLOAD_LIMIT = 1 # MB
@@ -22,7 +20,4 @@ class Upload < ActiveRecord::Base
     end
   end
 
-  def process_file
-    #binding.remote_pry
-  end
 end
