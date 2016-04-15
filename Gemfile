@@ -9,6 +9,7 @@ gem 'rake'
 
 # Component requirements
 gem 'carrierwave'
+gem 'fog'
 gem 'compass'
 gem 'bcrypt'
 gem 'slim'
