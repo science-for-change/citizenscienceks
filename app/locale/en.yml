@@ -3,10 +3,10 @@ en:
     project_info: Project Info
     stories: Stories
     data: Data
-    participate: Training Workshop
+    participate: "#SfCKFestival2016"
     connect: Connect
   frontpage:
-    slogan: 'Training workshop "Get data, take action and drive change" 20-22 November 2015 - Prishtina.'
+    slogan: 'JOIN US FOR SCIENCE FOR CHANGE FESTIVAL BECAUSE CHANGE IS IN THE AIR! - 22-23 APRIL 2016, PRISHTINA'
     slogan_original: 'Air pollution in Kosovo causes <strong>835</strong> premature deaths, <strong>310</strong> new cases of chronic bronchitis, <strong>600</strong> hospital admissions and <strong>11,600</strong> emergency visits each year <span class="super-small"><br>(World Bank 2012)</span>'
     project_info:
       heading: Citizen Science?
@@ -21,8 +21,8 @@ en:
         downloads_link: Data downloads [COMING SOON]
         apis_link: Public APIs [COMING SOON]
     participate:
-      header: Training Workshop
-      paragraph_1: 'The training workshop “Get data, take action and drive change” is part of the second phase of “Science for Change” project and it’s an invitation for all young activists concerned with environmental pollution to apply for the training workshop taking place between 20-22 November 2015.'
+      header: ''
+      paragraph_1: ''
       paragraph_2: ''
       paragraph_3: ''
       header_original: Participate
