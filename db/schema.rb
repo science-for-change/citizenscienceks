@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 12) do
+ActiveRecord::Schema.define(version: 13) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,28 @@ ActiveRecord::Schema.define(version: 12) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "site_id"
+  end
+
+  create_table "sidepack_sessions", force: :cascade do |t|
+    t.string   "model"
+    t.string   "model_number"
+    t.string   "serial_number"
+    t.string   "test_id"
+    t.string   "test_abbreviation"
+    t.datetime "start_timestamp"
+    t.integer  "duration"
+    t.integer  "time_constant"
+    t.integer  "log_interval"
+    t.integer  "number_of_points"
+    t.text     "notes"
+    t.string   "statistics_channel"
+    t.string   "units"
+    t.float    "average"
+    t.float    "minimum"
+    t.datetime "minimum_timestamp"
+    t.float    "maximum"
+    t.datetime "maximum_timestamp"
+    t.integer  "user_id"
   end
 
   create_table "sites", force: :cascade do |t|
