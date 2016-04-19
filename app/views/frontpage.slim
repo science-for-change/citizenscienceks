@@ -8,7 +8,8 @@
     .container.text-center
       .row
         .col-xs-10.col-xs-push-1
-          h1 == I18n.t("frontpage.slogan")
+          h1
+            | #{I18n.t("frontpage.slogan")} <br /><span style="font-size:0.5em">(<a href="https://docs.google.com/forms/d/1mc8U1Jfsyl7bQwYpktX6cHTLP4D5EeFpkkvLgtW4dIc/viewform">REGISTER HERE</a>)</span>
   .glyphicon.glyphicon-chevron-down.scroll-down.bounce.animated.hinge.infinite
 
 a name="participate"
