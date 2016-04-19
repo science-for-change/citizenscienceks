@@ -173,7 +173,26 @@ p {
   width: 50%;
   @media screen and (min-width: $screen-md-min) {
     height: 40px;
-    width: 14.28%;
+    width: 12.5%;
+  }
+  img {
+    top: 50%;
+    position: relative;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+  }
+}
+
+.col-fourth {
+  @extend .col-xs-4;
+  height: 100px !important;
+  float: left;
+  width: 50%;
+  @media screen and (min-width: $screen-md-min) {
+    height: 40px;
+    width: 25%;
   }
   img {
     top: 50%;
