@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 13) do
     t.datetime "start_timestamp"
     t.integer  "duration"
     t.integer  "time_constant"
-    t.integer  "log_interval"
+    t.string   "log_interval"
     t.integer  "number_of_points"
     t.text     "notes"
     t.string   "statistics_channel"
@@ -125,7 +125,6 @@ ActiveRecord::Schema.define(version: 13) do
     t.datetime "minimum_timestamp"
     t.float    "maximum"
     t.datetime "maximum_timestamp"
-    t.integer  "account_id"
   end
 
   create_table "sites", force: :cascade do |t|

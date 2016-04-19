@@ -9,7 +9,7 @@ class CreateSidepackSessions < ActiveRecord::Migration
       t.timestamp :start_timestamp
       t.integer :duration
       t.integer :time_constant
-      t.integer :log_interval
+      t.string :log_interval
       t.integer :number_of_points
       t.text :notes
       t.string :statistics_channel
@@ -19,7 +19,6 @@ class CreateSidepackSessions < ActiveRecord::Migration
       t.timestamp :minimum_timestamp
       t.float :maximum
       t.timestamp :maximum_timestamp
-      t.integer :account_id
     end
   end
 
