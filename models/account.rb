@@ -1,8 +1,6 @@
 class Account < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
 
-  has_many :sidepack_sessions
-
   # Validations
   validates_presence_of     :email, :role
   validates_presence_of     :password,                   :if => :password_required

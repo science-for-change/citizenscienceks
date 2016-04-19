@@ -16,7 +16,7 @@ class Uploader < CarrierWave::Uploader::Base
   end
 
   def process(file)
-    #binding.remote_pry
+    ProcessSidepackFile.perform_async(model.id)
   end
 
   def cache_dir
