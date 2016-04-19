@@ -70,7 +70,7 @@ p {
     background: transparent url("/images/polygon-alt.png") no-repeat right bottom;
     background-size: fill;
   }
-  background: transparent url("/images/hero-bg.jpg") no-repeat center;
+  background: transparent url("/images/festival_bg.png") no-repeat center;
   background-position: cover;
   margin: 0;
   min-height: 90%;
@@ -88,6 +88,7 @@ p {
     transform: translateY(-50%);
   }
   h1 {
+    color: $gray;
     font-size: 2em;
     @media screen and (min-width: $screen-md-min) {
       font-size: ($font-size-base * 3);
@@ -325,4 +326,16 @@ p {
 .page-section.blogs {
   padding-top:50px;
   padding-bottom:50px;
+}
+.schedule {
+  margin: auto;
+  td {
+    padding: 3px 10px;
+  }
+  .left {
+    text-align:left;
+  }
+  .right {
+    text-align:right;
+  }
 }

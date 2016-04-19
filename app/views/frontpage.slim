@@ -16,8 +16,9 @@ a name="participate"
   .container
     .row
       .col-xs-12.col-md-8.col-md-push-2.text-center
-        h1 == I18n.t("frontpage.participate.header")
-        p == I18n.t("frontpage.participate.paragraph_1")
+        = partial "shared/festival.slim"
+        /h1 == I18n.t("frontpage.participate.header")
+        /p == I18n.t("frontpage.participate.paragraph_1")
 
 .page-section.alternative-color
   .container
