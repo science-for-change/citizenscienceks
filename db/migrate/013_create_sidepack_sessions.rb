@@ -19,7 +19,7 @@ class CreateSidepackSessions < ActiveRecord::Migration
       t.timestamp :minimum_timestamp
       t.float :maximum
       t.timestamp :maximum_timestamp
-      t.integer :user_id
+      t.integer :account_id
     end
   end
 

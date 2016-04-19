@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(version: 13) do
     t.datetime "minimum_timestamp"
     t.float    "maximum"
     t.datetime "maximum_timestamp"
-    t.integer  "user_id"
+    t.integer  "account_id"
   end
 
   create_table "sites", force: :cascade do |t|
