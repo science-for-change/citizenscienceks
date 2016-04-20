@@ -1,5 +1,5 @@
 Citizenscienceks::App.controllers :stories do
-  layout :blog
+  layout :subpage
 
   get :index do
     @blog_posts = BlogPost.all.order('created_at desc')

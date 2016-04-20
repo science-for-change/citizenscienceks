@@ -1,0 +1,21 @@
+doctype 5
+html.no-js lang='en'
+  head
+    meta name='viewport' content='width=device-width,initial-scale=1'
+    meta charset='utf-8'
+    title Science for Change Kosovo
+    = stylesheet_link_tag :application
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
+
+    = javascript_include_tag 'vendor/modernizr'
+
+  body
+
+    = partial "shared/navigation"
+
+    = yield
+
+    = partial 'shared/footer'
+
+    = javascript_include_tag 'vendor/jquery.min.js'
+    = javascript_include_tag 'bootstrap.js'
