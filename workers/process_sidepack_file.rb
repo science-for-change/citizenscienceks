@@ -27,10 +27,20 @@ class ProcessSidepackFile
           maximum: raw.match(/Maximum:,(.*)\r$/)[1].to_f,
           maximum_timestamp: minimum_timestamp(raw)
         }
-        SidepackSession.create(session)
+        if session = SidepackSession.create(session)
+          raw.scan(/(^\d{1,2}\/\d{1,2}\/\d{4}),(\d{1,2}:\d{1,2}:\d{2}),(.*)\r/).each do |reading|
+            SidepackSessionReading.create({
+              reading_timestamp: reading_timestamp(reading[0], reading[1]),
+              sidepack_session: session,
+              reading: reading[2].to_f
+            })
+          end
+        end
       end
     end
   end
+
+  private
 
   def duration(raw)
     duration_match = raw.match(/Duration \(dd:hh:mm:ss\):,(\d{1,}):(\d\d):(\d\d):(\d\d)\r$/)
@@ -39,6 +49,18 @@ class ProcessSidepackFile
     minutes = duration_match[3].to_i
     seconds = duration_match[4].to_i
     (86400 * days) + (3600 * hours) + (60 * minutes) + seconds
+  end
+
+  def reading_timestamp(date, time)
+    date_match = date.match(/(\d\d)\/(\d\d)\/(\d\d\d\d)/)
+    day = date_match[1]
+    month = date_match[2]
+    year = date_match[3]
+    time_match = time.match(/(\d\d):(\d\d):(\d\d)/)
+    hour = time_match[1]
+    minute = time_match[2]
+    second = time_match[3]
+    Time.new(year, month, day, hour, minute, second, 0) # we do not know the right timezone, so default to UTC
   end
 
   def start_timestamp(raw)
