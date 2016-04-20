@@ -6,27 +6,29 @@ class ProcessSidepackFile
   def perform(upload_id)
     if upload = Upload.where(id: upload_id).take
       raw = open(upload.file.url).read
-      session = {
-        model: raw.match(/Model:,(.*)\r$/)[1],
-        model_number: raw.match(/Model Number:,(.*)\r$/)[1],
-        serial_number: raw.match(/Serial Number:,(.*)\r$/)[1],
-        test_id: raw.match(/Test ID:,(.*)\r$/)[1],
-        test_abbreviation: raw.match(/Test Abbreviation:,(.*)\r$/)[1],
-        start_timestamp: start_timestamp(raw),
-        duration: duration(raw),
-        time_constant: raw.match(/Time constant \(seconds\):,(.*)\r$/)[1].to_i,
-        log_interval: raw.match(/Log Interval \(mm:ss\):,(.*)\r$/)[1],
-        number_of_points: raw.match(/Number of points:,(.*)\r$/)[1].to_i,
-        notes: raw.match(/Notes:,(.*)\r$/)[1],
-        statistics_channel: raw.match(/Statistics,Channel:,(.*)\r$/)[1],
-        units: raw.match(/Units:,(.*)\r$/)[1],
-        average: raw.match(/Average:,(.*)\r$/)[1].to_f,
-        minimum: raw.match(/Minimum:,(.*)\r$/)[1].to_f,
-        minimum_timestamp: maximum_timestamp(raw),
-        maximum: raw.match(/Maximum:,(.*)\r$/)[1].to_f,
-        maximum_timestamp: minimum_timestamp(raw)
-      }
-      SidepackSession.create(session)
+      unless SidepackSession.where(start_timestamp: start_timestamp(raw))
+        session = {
+          model: raw.match(/Model:,(.*)\r$/)[1],
+          model_number: raw.match(/Model Number:,(.*)\r$/)[1],
+          serial_number: raw.match(/Serial Number:,(.*)\r$/)[1],
+          test_id: raw.match(/Test ID:,(.*)\r$/)[1],
+          test_abbreviation: raw.match(/Test Abbreviation:,(.*)\r$/)[1],
+          start_timestamp: start_timestamp(raw),
+          duration: duration(raw),
+          time_constant: raw.match(/Time constant \(seconds\):,(.*)\r$/)[1].to_i,
+          log_interval: raw.match(/Log Interval \(mm:ss\):,(.*)\r$/)[1],
+          number_of_points: raw.match(/Number of points:,(.*)\r$/)[1].to_i,
+          notes: raw.match(/Notes:,(.*)\r$/)[1],
+          statistics_channel: raw.match(/Statistics,Channel:,(.*)\r$/)[1],
+          units: raw.match(/Units:,(.*)\r$/)[1],
+          average: raw.match(/Average:,(.*)\r$/)[1].to_f,
+          minimum: raw.match(/Minimum:,(.*)\r$/)[1].to_f,
+          minimum_timestamp: maximum_timestamp(raw),
+          maximum: raw.match(/Maximum:,(.*)\r$/)[1].to_f,
+          maximum_timestamp: minimum_timestamp(raw)
+        }
+        SidepackSession.create(session)
+      end
     end
   end
 
