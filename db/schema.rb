@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 13) do
+ActiveRecord::Schema.define(version: 14) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,12 @@ ActiveRecord::Schema.define(version: 13) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "site_id"
+  end
+
+  create_table "sidepack_session_readings", force: :cascade do |t|
+    t.integer  "sidepack_session_id"
+    t.datetime "reading_timestamp"
+    t.float    "reading"
   end
 
   create_table "sidepack_sessions", force: :cascade do |t|
