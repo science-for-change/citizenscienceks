@@ -6,7 +6,7 @@ class ProcessSidepackFile
   def perform(upload_id)
     if upload = Upload.where(id: upload_id).take
       raw = open(upload.file.url).read
-      unless SidepackSession.where(start_timestamp: start_timestamp(raw))
+      unless SidepackSession.where(start_timestamp: start_timestamp(raw)).any?
         session = {
           model: raw.match(/Model:,(.*)\r$/)[1],
           model_number: raw.match(/Model Number:,(.*)\r$/)[1],
