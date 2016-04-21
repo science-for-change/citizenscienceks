@@ -31,9 +31,19 @@ javascript:
                   text: 'Particles #{@sidepack_session.units}'
               },
               plotLines: [{
-                  value: 0,
-                  width: 1,
-                  color: '#808080'
+                  value: 0.025,
+                  width: 3,
+                  label: {
+                    text: 'EC annual PM2.5 limit'
+                  },
+                  color: '#cc3700'
+              }, {
+                  value: 0.035,
+                  width: 3,
+                  color: '#FF4500',
+                  label: {
+                    text: 'US 24 hour PM2.5 limit'
+                  }
               }]
           },
           tooltip: {
