@@ -47,7 +47,7 @@ javascript:
           },
           series: [{
               name: 'Sidepack sampling',
-              data: #{@sidepack_session.readings.pluck(:reading).to_json}
+              data: #{@sidepack_session.readings.map(&:calibrated_reading).to_json}
           }]
       });
   });
