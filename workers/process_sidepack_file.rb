@@ -53,8 +53,8 @@ class ProcessSidepackFile
 
   def reading_timestamp(date, time)
     date_match = date.match(/(\d\d)\/(\d\d)\/(\d\d\d\d)/)
-    day = date_match[1]
-    month = date_match[2]
+    day = date_match[2]
+    month = date_match[1]
     year = date_match[3]
     time_match = time.match(/(\d\d):(\d\d):(\d\d)/)
     hour = time_match[1]
@@ -65,8 +65,8 @@ class ProcessSidepackFile
 
   def start_timestamp(raw)
     date_match = raw.match(/Start Date:,(\d\d)\/(\d\d)\/(\d\d\d\d)\r$/)
-    day = date_match[1]
-    month = date_match[2]
+    day = date_match[2]
+    month = date_match[1]
     year = date_match[3]
     time_match = raw.match(/Start Time:,(\d\d):(\d\d):(\d\d)\r$/)
     hour = time_match[1]
@@ -77,8 +77,8 @@ class ProcessSidepackFile
 
   def minimum_timestamp(raw)
     date_match = raw.match(/Date of Minimum:,(\d\d)\/(\d\d)\/(\d\d\d\d)\r$/)
-    day = date_match[1]
-    month = date_match[2]
+    day = date_match[2]
+    month = date_match[1]
     year = date_match[3]
     time_match = raw.match(/Time of Minimum:,(\d\d):(\d\d):(\d\d)\r$/)
     hour = time_match[1]
@@ -89,8 +89,8 @@ class ProcessSidepackFile
 
   def maximum_timestamp(raw)
     date_match = raw.match(/Date of Maximum:,(\d\d)\/(\d\d)\/(\d\d\d\d)\r$/)
-    day = date_match[1]
-    month = date_match[2]
+    day = date_match[2]
+    month = date_match[1]
     year = date_match[3]
     time_match = raw.match(/Time of Maximum:,(\d\d):(\d\d):(\d\d)\r$/)
     hour = time_match[1]
