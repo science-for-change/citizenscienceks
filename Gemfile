@@ -20,6 +20,7 @@ gem 'redis'
 gem 'pry-remote'
 gem 'unicorn'
 gem 'sidekiq'
+gem 'sidekiq-failures'
 
 # Padrino Stable Gem
 gem 'padrino', '0.12.3'

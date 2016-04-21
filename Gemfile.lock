@@ -255,6 +255,8 @@ GEM
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
+    sidekiq-failures (0.4.5)
+      sidekiq (>= 2.16.0)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -297,6 +299,7 @@ DEPENDENCIES
   rake
   redis
   sidekiq
+  sidekiq-failures
   slim
   unicorn
 
