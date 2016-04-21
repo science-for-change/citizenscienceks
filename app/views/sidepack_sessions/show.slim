@@ -1,0 +1,53 @@
+.page-section
+  .container
+    .row
+      .col-xs-12.col-md-12
+        a href="/sidepack_data" << Back
+    .row
+      .col-xs-12.col-md-12
+        h2 Sidepack data recorded at #{@sidepack_session.start_timestamp.strftime('%H:%M:%S - %e %B %Y')}
+        h3 #{@sidepack_session.number_of_points} recorded data samples
+    .row
+      .col-xs-12.col-md-12
+        #container style="min-width: 400px; height: 400px; margin: 0 auto"
+
+script src="//code.highcharts.com/highcharts.js" type="text/javascript"
+javascript:
+  $(function () {
+      $('#container').highcharts({
+          title: {
+              text: '',
+              x: -20 //center
+          },
+          subtitle: {
+              text: '',
+              x: -20
+          },
+          xAxis: {
+            categories: #{@sidepack_session.readings.map {|i| i.reading_timestamp.strftime('%H:%M:%S - %e %B %Y') }.to_json.html_safe}
+          },
+          yAxis: {
+              title: {
+                  text: 'Particles #{@sidepack_session.units}'
+              },
+              plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+              }]
+          },
+          tooltip: {
+              valueSuffix: '#{@sidepack_session.units}'
+          },
+          legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0
+          },
+          series: [{
+              name: 'Sidepack sampling',
+              data: #{@sidepack_session.readings.pluck(:reading).to_json}
+          }]
+      });
+  });

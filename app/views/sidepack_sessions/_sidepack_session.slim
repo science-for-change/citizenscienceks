@@ -1,0 +1,16 @@
+- if index.even?
+  .page-section.blogs.alternative-color
+    .container
+      .row
+        .col-xs-12.col-md-12
+          h2 Sidepack data recorded at #{sidepack_session.start_timestamp.strftime('%H:%M:%S - %e %B %Y')}
+          h3 #{sidepack_session.number_of_points} recorded data samples
+          a.read-more = link_to "View details >>", url_for(:sidepack_data, :show, id: sidepack_session)
+- else
+  .page-section.blogs
+    .container
+      .row
+        .col-xs-12.col-md-12
+          h2 Sidepack data recorded at #{sidepack_session.start_timestamp.strftime('%H:%M:%S - %e %B %Y')}
+          h3 #{sidepack_session.number_of_points} recorded data samples
+          a.read-more = link_to "View details >>", url_for(:sidepack_data, :show, id: sidepack_session)
