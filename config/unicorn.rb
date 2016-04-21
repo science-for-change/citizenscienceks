@@ -1,6 +1,6 @@
 require 'sidekiq'
 
-worker_processes 3
+worker_processes 1
 timeout 30
 preload_app true
 
@@ -21,6 +21,6 @@ after_fork do |server, worker|
     config.redis = { :size => 1 } # Limit the client size, see http://manuel.manuelles.nl/blog/2012/11/13/sidekiq-on-heroku-with-redistogo-nano/
   end
   Sidekiq.configure_server do |config|
-    config.redis = { :size => 2 } # Limit the server size, see http://manuel.manuelles.nl/blog/2012/11/13/sidekiq-on-heroku-with-redistogo-nano/
+    config.redis = { :size => 1 } # Limit the server size, see http://manuel.manuelles.nl/blog/2012/11/13/sidekiq-on-heroku-with-redistogo-nano/
   end
 end
