@@ -15,9 +15,10 @@ en:
       read_more: Read more >>
     data:
       heading: Data
-      paragraph: 'Project participants have collected data using air quality diffusion tubes, ghost wipes as well as using Smart Citizen Kits. The map below gives access to all this community collected data. You can also access the data via our public APIs and download data using the links here.'
+      paragraph: 'Project participants have collected data using a Sidepack air quality monitor, air quality diffusion tubes, ghost wipes as well as using Smart Citizen Kits. The map below gives access to all this community collected data. You can also access the data via our public APIs and download data using the links here.'
+      sidepack_link: 'Sidepack Data (2016)'
       downloads:
-        header: Downloads & Public APIs
+        header: Community gathered data
         downloads_link: Data downloads [COMING SOON]
         apis_link: Public APIs [COMING SOON]
     participate:

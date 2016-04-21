@@ -36,12 +36,15 @@ Bundler.require(:default, RACK_ENV)
 Padrino.before_load do
   I18n.default_locale = :en
   I18n.enforce_available_locales = false
+  require File.join(PADRINO_ROOT, 'config', 'workers.rb')
 end
 
 ##
 # Add your after (RE)load hooks here
 #
 Padrino.after_load do
+  Sidekiq.logger = Padrino.logger
+  Padrino.require_dependencies("#{Padrino.root}/app/mailers/*.rb")
 end
 
 Padrino.load!

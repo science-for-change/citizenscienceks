@@ -11,32 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 11) do
+ActiveRecord::Schema.define(version: 14) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accounts", force: true do |t|
-    t.string   "name"
-    t.string   "surname"
-    t.string   "email"
-    t.string   "crypted_password"
-    t.string   "role"
+  create_table "accounts", force: :cascade do |t|
+    t.string   "name",             limit: 255
+    t.string   "surname",          limit: 255
+    t.string   "email",            limit: 255
+    t.string   "crypted_password", limit: 255
+    t.string   "role",             limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "blog_posts", force: true do |t|
-    t.string   "title"
+  create_table "blog_posts", force: :cascade do |t|
+    t.string   "title",      limit: 255
     t.text     "body"
     t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "diffusion_tubes", force: true do |t|
-    t.string   "no2_label"
-    t.string   "so2_label"
+  create_table "diffusion_tubes", force: :cascade do |t|
+    t.string   "no2_label",      limit: 255
+    t.string   "so2_label",      limit: 255
     t.float    "tube_height"
     t.float    "exposure_hours"
     t.float    "µg_s_total"
@@ -54,17 +54,17 @@ ActiveRecord::Schema.define(version: 11) do
     t.text     "staff_involved"
   end
 
-  create_table "ghost_wipes", force: true do |t|
-    t.string   "label"
-    t.string   "As"
-    t.string   "Cd"
-    t.string   "Cr"
-    t.string   "Cu"
-    t.string   "Hg"
-    t.string   "Ni"
-    t.string   "Pb"
-    t.string   "Se"
-    t.string   "Zn"
+  create_table "ghost_wipes", force: :cascade do |t|
+    t.string   "label",          limit: 255
+    t.string   "As",             limit: 255
+    t.string   "Cd",             limit: 255
+    t.string   "Cr",             limit: 255
+    t.string   "Cu",             limit: 255
+    t.string   "Hg",             limit: 255
+    t.string   "Ni",             limit: 255
+    t.string   "Pb",             limit: 255
+    t.string   "Se",             limit: 255
+    t.string   "Zn",             limit: 255
     t.integer  "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 11) do
     t.text     "staff_involved"
   end
 
-  create_table "posts", force: true do |t|
+  create_table "posts", force: :cascade do |t|
     t.datetime "timestamp"
     t.float    "temp"
     t.float    "hum"
@@ -87,15 +87,15 @@ ActiveRecord::Schema.define(version: 11) do
     t.integer  "sck_device_id"
   end
 
-  create_table "sck_devices", force: true do |t|
-    t.string   "SCK_id"
-    t.string   "SCK_API_key"
-    t.string   "title"
-    t.string   "description"
-    t.string   "location"
-    t.string   "city"
-    t.string   "country"
-    t.string   "exposure"
+  create_table "sck_devices", force: :cascade do |t|
+    t.string   "SCK_id",               limit: 255
+    t.string   "SCK_API_key",          limit: 255
+    t.string   "title",                limit: 255
+    t.string   "description",          limit: 255
+    t.string   "location",             limit: 255
+    t.string   "city",                 limit: 255
+    t.string   "country",              limit: 255
+    t.string   "exposure",             limit: 255
     t.decimal  "elevation"
     t.decimal  "geo_lat"
     t.decimal  "geo_long"
@@ -106,11 +106,45 @@ ActiveRecord::Schema.define(version: 11) do
     t.integer  "site_id"
   end
 
-  create_table "sites", force: true do |t|
-    t.string   "name"
-    t.string   "location"
+  create_table "sidepack_session_readings", force: :cascade do |t|
+    t.integer  "sidepack_session_id"
+    t.datetime "reading_timestamp"
+    t.float    "reading"
+  end
+
+  create_table "sidepack_sessions", force: :cascade do |t|
+    t.string   "model"
+    t.string   "model_number"
+    t.string   "serial_number"
+    t.string   "test_id"
+    t.string   "test_abbreviation"
+    t.datetime "start_timestamp"
+    t.integer  "duration"
+    t.integer  "time_constant"
+    t.string   "log_interval"
+    t.integer  "number_of_points"
+    t.text     "notes"
+    t.string   "statistics_channel"
+    t.string   "units"
+    t.float    "average"
+    t.float    "minimum"
+    t.datetime "minimum_timestamp"
+    t.float    "maximum"
+    t.datetime "maximum_timestamp"
+  end
+
+  create_table "sites", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "location",   limit: 255
     t.float    "latitude"
     t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "uploads", force: :cascade do |t|
+    t.text     "file"
+    t.integer  "upload_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

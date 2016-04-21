@@ -1,0 +1,15 @@
+- error = @upload.errors.include?(:file)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :file, :class => 'control-label'
+  div class='controls'
+    = f.file_field :file, :autofocus => true
+- error = @upload.errors.include?(:upload_type)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :upload_type, :class => 'control-label'
+  div class='controls'
+    = f.select(:upload_type, {options: Upload.upload_types.keys})
+
+div class="form-actions"
+  = f.submit pat(:upload_and_process_file), :class => 'btn btn-info', :name => 'upload and process file'
+  |&nbsp;
+  = link_to pat(:cancel), url(:uploads, :index), :class => 'btn btn-default'
