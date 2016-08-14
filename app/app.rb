@@ -73,6 +73,19 @@ module Citizenscienceks
       ghost_wipes.to_json
     end
 
+    get :sidepack_sessions, map: '/sidepack_sessions.json' do
+      sidepack_sessions = SidepackSession.all
+      content_type :json
+      sidepack_sessions.to_json
+    end
+
+    get :sidepack_session_readings, map: '/sidepack_sessions/:sidepack_session_id/readings.json' do
+      session_readings = SidepackSession.find(params[:sidepack_session_id]).readings
+      content_type :json
+      session_readings.to_json
+    end
+
+    #
 #    configure :production do
       set :cache, Padrino::Cache.new(:Redis, :backend => $redis)
 #    end
