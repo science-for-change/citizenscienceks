@@ -9,7 +9,8 @@
       .row
         .col-xs-10.col-xs-push-1
           h1
-            | #{I18n.t("frontpage.slogan")} <br /><span style="font-size:0.5em">(<a href="#participate">FESTIVAL PROGRAMME >></a>)</span>
+            | #{I18n.t("frontpage.slogan")} <br /><span style="font-size:0.5em; font-variant:small-caps">(<a href="#participate">Sign Up >></a>)</span><br />
+
   .glyphicon.glyphicon-chevron-down.scroll-down.bounce.animated.hinge.infinite
 
 a name="participate"
@@ -17,9 +18,7 @@ a name="participate"
   .container
     .row
       .col-xs-12.col-md-8.col-md-push-2.text-center
-        = partial "shared/festival.slim"
-        /h1 == I18n.t("frontpage.participate.header")
-        /p == I18n.t("frontpage.participate.paragraph_1")
+        = partial "shared/call_for_participants.slim"
 
 .page-section.alternative-color
   .container
